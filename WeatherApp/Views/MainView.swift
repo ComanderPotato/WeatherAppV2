@@ -13,9 +13,10 @@ struct MainView: View {
             ZStack {
                 VStack{
                     // search
-                    
+                    MainSearchBoxView()
                     // header
                     // listview
+                    Spacer()
                 }
             }
         }

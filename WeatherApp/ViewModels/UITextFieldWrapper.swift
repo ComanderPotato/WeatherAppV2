@@ -18,7 +18,9 @@ struct UITextFieldWrapper: UIViewRepresentable {
         textField.autocorrectionType = .no
         textField.autocapitalizationType = .none
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.textColor = .white
+        if let uiColor = UIColor(named: "TextColour") {
+            textField.textColor = uiColor
+        }
         return textField
     }
     

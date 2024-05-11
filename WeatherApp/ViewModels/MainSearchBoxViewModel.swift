@@ -8,5 +8,5 @@
 import Foundation
 
 class MainSearchBoxViewModel: ObservableObject {
-    
+    @Published var searchQuery = ""
 }
