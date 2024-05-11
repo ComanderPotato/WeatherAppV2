@@ -13,11 +13,16 @@ struct ForecastHeaderView: View {
     var body: some View {
         VStack {
             Text("My Location")
-            Text(location.name)
-            Text(forecastDay.hour.first!.tempC.formatted())
+                .font(.system(size: 40, weight: Font.Weight.light))
+            Text(location.name.uppercased())
+                .font(.system(size: 20, weight: Font.Weight.light))
+            Text("\(String(format: "%.0f", forecastDay.hour.first!.tempC))°")
+                .font(.system(size: 50, weight: Font.Weight.light))
             Text(forecastDay.hour.first!.condition.text)
-            Text("L: \(forecastDay.day.mintempC.formatted()) H: \(forecastDay.day.maxtempC.formatted())")
+            
+            Text("L: \(String(format: "%.0f", forecastDay.day.mintempC))° H: \(String(format: "%.0f", forecastDay.day.maxtempC))°")
         }
+//        .padding(.vertical, 50)
     }
 }
 

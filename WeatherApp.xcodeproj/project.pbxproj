@@ -52,6 +52,7 @@
 		5AAADAEA2BEFA2E4001F7B19 /* SunIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAADAE92BEFA2E4001F7B19 /* SunIconView.swift */; };
 		5AAADAEC2BEFAAE9001F7B19 /* LoadingAnimationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAADAEB2BEFAAE9001F7B19 /* LoadingAnimationViewModel.swift */; };
 		5AAADAEE2BEFAAF0001F7B19 /* LoadingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAADAED2BEFAAF0001F7B19 /* LoadingAnimationView.swift */; };
+		5AAADAF02BEFB21A001F7B19 /* ForecastTemperatureBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAADAEF2BEFB21A001F7B19 /* ForecastTemperatureBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		5AAADAE92BEFA2E4001F7B19 /* SunIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunIconView.swift; sourceTree = "<group>"; };
 		5AAADAEB2BEFAAE9001F7B19 /* LoadingAnimationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimationViewModel.swift; sourceTree = "<group>"; };
 		5AAADAED2BEFAAF0001F7B19 /* LoadingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimationView.swift; sourceTree = "<group>"; };
+		5AAADAEF2BEFB21A001F7B19 /* ForecastTemperatureBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTemperatureBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +187,7 @@
 				5AAADAE72BEF967F001F7B19 /* WeatherIconView.swift */,
 				5AAADAE92BEFA2E4001F7B19 /* SunIconView.swift */,
 				5AAADAED2BEFAAF0001F7B19 /* LoadingAnimationView.swift */,
+				5AAADAEF2BEFB21A001F7B19 /* ForecastTemperatureBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				5AAADAB62BEF4C43001F7B19 /* SaveData.swift in Sources */,
 				5AAADAB22BEF4C3A001F7B19 /* Icon.swift in Sources */,
 				5AAADAA62BEF4C1F001F7B19 /* Day.swift in Sources */,
+				5AAADAF02BEFB21A001F7B19 /* ForecastTemperatureBarView.swift in Sources */,
 				5AAADAE02BEF7CE8001F7B19 /* ForecastDayViewModel.swift in Sources */,
 				5AAADAA82BEF4C23001F7B19 /* DayText.swift in Sources */,
 				5AAADAEE2BEFAAF0001F7B19 /* LoadingAnimationView.swift in Sources */,

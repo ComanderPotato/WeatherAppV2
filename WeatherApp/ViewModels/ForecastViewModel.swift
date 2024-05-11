@@ -16,6 +16,7 @@ class ForecastViewModel: ObservableObject {
             do {
 //                try await viewModel.fetchForecast(location: location, days: days)
                 self.forecastData = try await getForecastData(location: location, days: days)
+                self.pruneHourlyForecasts()
             } catch RequestError.invalidURL {
                 print("InvalidURL")
             } catch RequestError.invalidData {
@@ -29,6 +30,18 @@ class ForecastViewModel: ObservableObject {
             }
         }
 //            self.forecastData = try await getForecastData(location: location, days: days)
+    }
+    func pruneHourlyForecasts() -> Void {
+        guard var hourlyForecasts = self.forecastData?.forecast.forecastday.first?.hour else {
+            return
+        }
+        var currentDate = Date()
+        let currentHour = Calendar.current.component(.hour, from: currentDate)
+        
+        for i in 0..<currentHour {
+                hourlyForecasts.removeFirst()
+        }
+        self.forecastData!.forecast.forecastday[0].hour = hourlyForecasts
     }
     func getForecastData<T: Codable>(location: String, days: String) async throws -> T {
         return try await apiCall(request: APIRequest.forecast, location: location, days: days)

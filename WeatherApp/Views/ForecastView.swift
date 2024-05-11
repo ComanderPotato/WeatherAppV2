@@ -14,10 +14,15 @@ struct ForecastView: View {
     var body: some View {
         ZStack {
             if let forecast = viewModel.forecastData {
-                VStack {
+                ScrollView(showsIndicators: false) {
+                    Spacer()
+                        .frame(height: 20)
                     ForecastHeaderView(location: forecast.location, forecastDay: forecast.forecast.forecastday.first!)
+                    Spacer()
+                        .frame(height: 50)
                     ForecastHourView(forecastDay: forecast.forecast.forecastday.first!)
                     ForecastDayView(forecastDays: forecast.forecast.forecastday)
+                    
                 }
             } else {
                 LoadingAnimationView()

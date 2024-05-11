@@ -14,7 +14,11 @@ struct SunIconView: View {
     var body: some View {
         VStack {
             Text(time)
-            WeatherIconView(icon: "//cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Sunrise_Sun_Daybreak_Down_Morning_Apple_Weather-1024.png")
+            Spacer()
+            WeatherIconView(icon: "//cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Sunrise_Sun_Daybreak_Down_Morning_Apple_Weather-1024.png",
+                            dimensions: 50,
+            chanceOfRain: 0)
+            Spacer()
             Text(title)
         }
     }

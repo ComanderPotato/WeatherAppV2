@@ -32,9 +32,7 @@ func createDummyAstronomyData() -> AstronomyData {
 }
 
 func createDummyCondition() -> Condition {
-    return Condition(text: "Clear sky",
-                     icon: "//cdn.weatherapi.com/weather/64x64/night/143.png",
-                     code: 800)
+    return Condition(text: "Clear sky", icon: "//cdn.weatherapi.com/weather/64x64/night/143.png", code: 800)
 }
 
 func createDummyCurrent() -> Current {
@@ -115,7 +113,7 @@ func createDummyHour() -> Hour {
     let dummyCondition = createDummyCondition()
     return Hour(timeEpoch: 1621062600,
                 time: "2024-05-11 13:00",
-                tempC: 25.0,
+                tempC: 25.5,
                 tempF: 77.0,
                 condition: dummyCondition,
                 windMph: 10.0,

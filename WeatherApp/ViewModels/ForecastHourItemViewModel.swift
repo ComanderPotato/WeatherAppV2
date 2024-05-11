@@ -21,10 +21,9 @@ class ForecastHourItemViewModel: ObservableObject {
             
             let timeFormatted = Calendar.current.dateComponents([.hour, .minute], from: time)
             
-   
             let pastOne: Bool = timeFormatted.hour! > 12
             let isNoon: Bool = timeFormatted.hour! >= 12
-            self.hour = pastOne ? String(timeFormatted.hour! - 12) : String(timeFormatted.hour!)
+            self.hour = pastOne ? String(timeFormatted.hour! - 12) : timeFormatted.hour == 0 ? String(timeFormatted.hour! + 12) : String(timeFormatted.hour!)
             self.meridiemIndicator = isNoon ? "PM" : "AM"
         }
     }

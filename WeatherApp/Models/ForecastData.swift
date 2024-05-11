@@ -10,5 +10,5 @@ import Foundation
 struct ForecastData: Codable {
     let location: Location
     let current: Current
-    let forecast: Forecast
+    var forecast: Forecast
 }
