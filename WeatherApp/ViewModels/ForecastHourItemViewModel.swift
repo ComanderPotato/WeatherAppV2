@@ -10,9 +10,11 @@ import Foundation
 class ForecastHourItemViewModel: ObservableObject {
     @Published var hour: String = ""
     @Published var meridiemIndicator: String = ""
+    @Published var sunriseIndex: Int = 0
+    @Published var sunsetIndex: Int = 0
     init() {}
     
-    func formateTime(time: String) -> Void {
+    func formatTime(time: String) -> Void {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         if let time = dateFormatter.date(from: time) {
@@ -25,5 +27,8 @@ class ForecastHourItemViewModel: ObservableObject {
             self.hour = pastOne ? String(timeFormatted.hour! - 12) : String(timeFormatted.hour!)
             self.meridiemIndicator = isNoon ? "PM" : "AM"
         }
+    }
+    func setSunriseAndSunsetIndex(astro: Astro) -> Void {
+        
     }
 }

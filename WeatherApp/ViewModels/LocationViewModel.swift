@@ -13,5 +13,4 @@ class LocationViewModel: ObservableObject {
     func getForecastData<T: Codable>(location: String, days: String) async throws -> T {
         return try await apiCall(request: APIRequest.forecast, location: location, days: days)
     }
-    
 }

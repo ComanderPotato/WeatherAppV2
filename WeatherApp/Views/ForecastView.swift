@@ -16,15 +16,11 @@ struct ForecastView: View {
             if let forecast = viewModel.forecastData {
                 VStack {
                     ForecastHeaderView(location: forecast.location, forecastDay: forecast.forecast.forecastday.first!)
-                    ForecastHourView(forecastHours: forecast.forecast.forecastday.first!.hour)
+                    ForecastHourView(forecastDay: forecast.forecast.forecastday.first!)
+                    ForecastDayView(forecastDays: forecast.forecast.forecastday)
                 }
             } else {
-                Circle()
-                    .foregroundColor(.primary)
-                    .frame(width: 20, height: 20)
-                    .padding()
-                    .background(Color.blue)
-                    .clipShape(Rectangle())
+                LoadingAnimationView()
             }
         }.task {
             do {
@@ -45,5 +41,5 @@ struct ForecastView: View {
 }
 
 #Preview {
-    ForecastView(location: "Sydney", days: "1")
+    ForecastView(location: "Sydney", days: "10")
 }

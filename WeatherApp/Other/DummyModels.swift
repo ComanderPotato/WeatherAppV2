@@ -33,7 +33,7 @@ func createDummyAstronomyData() -> AstronomyData {
 
 func createDummyCondition() -> Condition {
     return Condition(text: "Clear sky",
-                     icon: "https://example.com/clear_sky.png",
+                     icon: "//cdn.weatherapi.com/weather/64x64/night/143.png",
                      code: 800)
 }
 

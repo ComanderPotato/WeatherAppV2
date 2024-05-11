@@ -8,23 +8,33 @@
 import SwiftUI
 
 struct ForecastHourView: View {
-    let forecastHours: [Hour]
+    let forecastDay: Forecastday
+    @StateObject var viewModel = ForecastHourViewModel()
     var body: some View {
         VStack {
             Text("HOURLY FORECAST")
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 20) {
-                    ForEach(forecastHours.indices, id: \.self) { index in
-                        ForecastHourItemView(forecastHour: forecastHours[index])
+                    ForEach(forecastDay.hour.indices, id: \.self) { index in
+                        ForecastHourItemView(forecastHour: forecastDay.hour[index])
+                        if(index == viewModel.sunriseIndex) {
+                            SunIconView(title: "Sunrise", time: viewModel.sunriseTime,
+                                        icon: "//cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Sunrise_Sun_Daybreak_Down_Morning_Apple_Weather-1024.png")
+                        } else if(index == viewModel.sunsetIndex) {
+                            SunIconView(title: "Sunset", time: viewModel.sunsetTime, 
+                                        icon: "//cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Sunset_Nightfall_Sundown_Dusk_Twilight_Apple_Weather-1024.png")
+                        }
                     }
                 }
             }.padding(.vertical)
-            
         }.background(RoundedRectangle(cornerRadius: 10).fill(.thickMaterial))
+            .onAppear {
+                viewModel.configureSunriseAndSunset(astro: forecastDay.astro)
+            }
         
     }
 }
 
 #Preview {
-    ForecastHourView(forecastHours: [createDummyHour()])
+    ForecastHourView(forecastDay: createDummyForecastday())
 }

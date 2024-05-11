@@ -14,22 +14,12 @@ struct ForecastHourItemView: View {
         VStack {
             HStack {
                 
-                Text(viewModel.hour)
-                Text(viewModel.meridiemIndicator)
-                
+                Text("\(viewModel.hour)\(viewModel.meridiemIndicator)")
             }
-            AsyncImage(url: URL(string: "https:" + (forecastHour.condition.icon))) { image in
-                image.resizable()
-                    .frame(width: 50, height: 50)
-                    .aspectRatio(contentMode: .fit)
-                    .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-            } placeholder: {
-                Circle()
-                    .foregroundColor(.primary)
-            }
+            WeatherIconView(icon: forecastHour.condition.icon)
             Text("\(String(format: "%.0f", forecastHour.tempC))°C")
         }.onAppear {
-            viewModel.formateTime(time: forecastHour.time)
+            viewModel.formatTime(time: forecastHour.time)
         }
     }
 }
