@@ -73,7 +73,7 @@ struct MainView: View {
                     VStack(alignment: .leading) {
                         VStack {
                             if locationLoaded {
-                                WeatherDataListView(location: currentLocation)
+                                ForecastListView(inputLocation: currentLocation)
                             }
                         }
                         VStack {
