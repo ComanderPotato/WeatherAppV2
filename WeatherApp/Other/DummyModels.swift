@@ -114,7 +114,7 @@ func createDummyForecastday() -> Forecastday {
 func createDummyHour() -> Hour {
     let dummyCondition = createDummyCondition()
     return Hour(timeEpoch: 1621062600,
-                time: "12:30 PM",
+                time: "2024-05-11 13:00",
                 tempC: 25.0,
                 tempF: 77.0,
                 condition: dummyCondition,
@@ -149,14 +149,14 @@ func createDummyHour() -> Hour {
                 uv: 6.0)
 }
 
-let location = Location(name: "London",
-                        region: "England",
-                        country: "United Kingdom",
-                        lat: 51.5074,
-                        lon: -0.1278,
-                        tzID: "Europe/London",
-                        localtimeEpoch: 1621062600,
-                        localtime: "2021-05-15 12:30 PM")
+//let location = Location(name: "London",
+//                        region: "England",
+//                        country: "United Kingdom",
+//                        lat: 51.5074,
+//                        lon: -0.1278,
+//                        tzID: "Europe/London",
+//                        localtimeEpoch: 1621062600,
+//                        localtime: "2021-05-15 12:30 PM")
 func createWeatherData(location: Location, current: Current) -> WeatherData {
     return WeatherData(location: location, current: current)
 }

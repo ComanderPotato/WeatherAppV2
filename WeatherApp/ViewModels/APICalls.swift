@@ -9,13 +9,6 @@ import Foundation
 
 
 // Refactor into seperate file
-let API_KEY = "78f67b17b64a41acbbb22331240905"
-enum GHError: Error {
-    case invalidURL
-    case invalidResponse
-    case invalidData
-    case bad
-}
 enum APIRequest: String {
     case current = "current"
     case forecast = "forecast"

@@ -44,13 +44,13 @@ struct ContentView: View {
 //                    print(forecastDay.day.mintempC)
 //                    print(forecastDay.day.maxtempC)
 //                }
-            } catch GHError.invalidURL {
+            } catch RequestError.invalidURL {
                 print("InvalidURL")
-            } catch GHError.invalidData {
+            } catch RequestError.invalidData {
                 print("InvalidData")
-            } catch GHError.invalidResponse {
+            } catch RequestError.invalidResponse {
                 print("InvalidResponse")
-            } catch GHError.bad {
+            } catch RequestError.bad {
                 print("BOO")
             } catch {
                 print("Invalid")

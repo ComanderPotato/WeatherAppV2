@@ -7,20 +7,20 @@
 
 import SwiftUI
 
-struct WeatherHeaderView: View {
+struct ForecastHeaderView: View {
     let location: Location
     let forecastDay: Forecastday
     var body: some View {
         VStack {
             Text("My Location")
             Text(location.name)
-            Text(forecastDay.hour.first?.tempC.formatted() ?? "")
-            Text(forecastDay.hour.first?.condition.text ?? "")
+            Text(forecastDay.hour.first!.tempC.formatted())
+            Text(forecastDay.hour.first!.condition.text)
             Text("L: \(forecastDay.day.mintempC.formatted()) H: \(forecastDay.day.maxtempC.formatted())")
         }
     }
 }
 
 #Preview {
-    WeatherHeaderView(location: createDummyLocation(), forecastDay: createDummyForecastday())
+    ForecastHeaderView(location: createDummyLocation(), forecastDay: createDummyForecastday())
 }

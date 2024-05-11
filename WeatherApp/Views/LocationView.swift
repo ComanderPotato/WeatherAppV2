@@ -13,18 +13,18 @@ struct LocationView: View {
     @State private var forecastData: ForecastData?
     var body: some View {
         ZStack {
-            WeatherHeaderView(location: forecastData?.location ?? createDummyLocation(), forecastDay: forecastData?.forecast.forecastday.first ?? createDummyForecastday())
+            ForecastHeaderView(location: forecastData?.location ?? createDummyLocation(), forecastDay: forecastData?.forecast.forecastday.first ?? createDummyForecastday())
         }.task {
             do {
                 forecastData = try await viewModel.getForecastData(location: "Sydney, Ultimo", days: "5")
     
-            } catch GHError.invalidURL {
+            } catch RequestError.invalidURL {
                 print("InvalidURL")
-            } catch GHError.invalidData {
+            } catch RequestError.invalidData {
                 print("InvalidData")
-            } catch GHError.invalidResponse {
+            } catch RequestError.invalidResponse {
                 print("InvalidResponse")
-            } catch GHError.bad {
+            } catch RequestError.bad {
                 print("BOO")
             } catch {
                 print("Invalid")
