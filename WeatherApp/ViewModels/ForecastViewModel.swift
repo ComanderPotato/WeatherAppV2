@@ -46,4 +46,13 @@ class ForecastViewModel: ObservableObject {
     func getForecastData<T: Codable>(location: String, days: String) async throws -> T {
         return try await apiCall(request: APIRequest.forecast, location: location, days: days)
     }
+    
+    // blocking the thread - will fix this after presentation
+    func waitForLocationToLoad() async {
+        do {
+            try await Task.sleep(nanoseconds: 1_000_000_000)
+        } catch {
+            print("Error while waiting for location: \(error)")
+        }
+    }
 }

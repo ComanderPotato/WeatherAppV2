@@ -14,7 +14,6 @@ struct MainCurrentLocationHeaderView: View {
     @StateObject var viewModel = ForecastViewModel()
     @StateObject var currentLocationManager = CurrentLocationManager()
     
-    var inputLocation: String
     var body: some View {
         ZStack {
             HStack {
@@ -26,7 +25,6 @@ struct MainCurrentLocationHeaderView: View {
                                 locationName: forecast.location.name,
                                 iconString: forecast.current.condition.icon)
                         }
-                        
                         Spacer()
                         ForecastListTemperaturesView(
                             currentDegrees: forecast.current.tempC,
@@ -37,13 +35,17 @@ struct MainCurrentLocationHeaderView: View {
                     LoadingAnimationView()
                 }
             }
+            .onAppear {
+                currentLocationManager.onViewDidLoad()
+            }
             .padding()
             .frame(width: 360)
             .foregroundStyle(Color("TextColour"))
             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
             .task {
                 do {
-                    try await viewModel.fetchForecast(location: inputLocation, days: "1")
+                    await viewModel.waitForLocationToLoad()
+                    try await viewModel.fetchForecast(location: currentLocationManager.currentCity, days: "1")
                 } catch RequestError.invalidURL {
                     print("InvalidURL")
                 } catch RequestError.invalidData {
@@ -61,5 +63,5 @@ struct MainCurrentLocationHeaderView: View {
 }
 
 #Preview {
-    MainCurrentLocationHeaderView(inputLocation: "Alice Springs")
+    MainCurrentLocationHeaderView()
 }

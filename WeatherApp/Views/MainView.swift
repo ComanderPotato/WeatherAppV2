@@ -15,7 +15,7 @@ struct MainView: View {
                     // search
                     MainSearchBoxView()
                     // header
-                    MainCurrentLocationHeaderView(inputLocation: "Sydney")
+                    MainCurrentLocationHeaderView()
                     // listview
                     
                     Spacer()

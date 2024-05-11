@@ -11,10 +11,15 @@ import CoreLocation
 // will change it to get coordinates
 class CurrentLocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     var locationManager: CLLocationManager!
-    @Published var currentCity: String = "Loading..."
+    @Published var currentCity: String
     @Published var currentLocation = ""
+    @Published var hasLocationLoaded = false
     
     var error: Error?
+    
+    override init() {
+        self.currentCity = "Unknown"
+    }
     
     func onViewDidLoad() {
         locationManager = CLLocationManager()
@@ -67,6 +72,7 @@ class CurrentLocationManager: NSObject, CLLocationManagerDelegate, ObservableObj
                 self.currentLocation = "\(location.coordinate.longitude),\(location.coordinate.latitude)"
             }
         }
+        hasLocationLoaded = true
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
