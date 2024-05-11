@@ -13,10 +13,10 @@ struct ForecastView: View {
     let days: String
     var body: some View {
         ZStack {
-            if let forecast = viewModel.forecastData {
-                VStack {
-                    ForecastHeaderView(location: forecast.location, forecastDay: forecast.forecast.forecastday.first!)
-                    ForecastHourView(forecastDay: forecast.forecast.forecastday.first!)
+                    if let forecast = viewModel.forecastData {
+                        VStack {
+                            ForecastHeaderView(location: forecast.location, forecastDay: forecast.forecast.forecastday.first!)
+                            ForecastHourView(forecastDay: forecast.forecast.forecastday.first!)
                     ForecastDayView(forecastDays: forecast.forecast.forecastday)
                 }
             } else {
