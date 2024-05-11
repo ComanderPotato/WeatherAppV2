@@ -69,7 +69,7 @@ class CurrentLocationManager: NSObject, CLLocationManagerDelegate, ObservableObj
             }
             
             if let location = placemark.location {
-                self.currentLocation = "\(location.coordinate.longitude),\(location.coordinate.latitude)"
+                self.currentLocation = "\(location.coordinate.latitude),\(location.coordinate.longitude)"
             }
         }
         hasLocationLoaded = true

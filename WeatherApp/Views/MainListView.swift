@@ -9,22 +9,12 @@ import SwiftUI
 
 struct MainListView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            /*
-             VStack(alignment: .leading) {
-                 VStack {
-                     if locationLoaded {
-                         ForecastListView(inputLocation: currentLocation)
-                     }
-                 }
-                 VStack {
-                     //saved for each
-                 }
-                 Spacer()
-             }
-
-         }
-             */
+        VStack(alignment: .leading) {
+            VStack {
+                // saved for each
+            }
+            Spacer()
+        }
     }
 }
 

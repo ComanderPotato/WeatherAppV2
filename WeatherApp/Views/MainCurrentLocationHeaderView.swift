@@ -45,7 +45,7 @@ struct MainCurrentLocationHeaderView: View {
             .task {
                 do {
                     await viewModel.waitForLocationToLoad()
-                    try await viewModel.fetchForecast(location: currentLocationManager.currentCity, days: "1")
+                    try await viewModel.fetchForecast(location: currentLocationManager.currentLocation, days: "1")
                 } catch RequestError.invalidURL {
                     print("InvalidURL")
                 } catch RequestError.invalidData {

@@ -10,7 +10,8 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack {
-            ForecastView(location: "Sydney", days: "10")
+            //ForecastView(location: "Sydney", days: "10")
+            MainView()
         }
         .padding()
     }
