@@ -55,6 +55,11 @@
 		5AAADAF42BEFE28C001F7B19 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAADAF32BEFE28C001F7B19 /* TestView.swift */; };
 		E506399E2BEFCE0000A84D05 /* ForecastListLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506399D2BEFCE0000A84D05 /* ForecastListLocationView.swift */; };
 		E50639A02BEFCE2300A84D05 /* ForecastListTemperaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506399F2BEFCE2300A84D05 /* ForecastListTemperaturesView.swift */; };
+		E543FC582BEFE6D800C2FFAA /* MainHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543FC572BEFE6D800C2FFAA /* MainHeaderView.swift */; };
+		E543FC5A2BEFE6FD00C2FFAA /* MainListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543FC592BEFE6FD00C2FFAA /* MainListView.swift */; };
+		E543FC5C2BEFEB1100C2FFAA /* MainSearchBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543FC5B2BEFEB1100C2FFAA /* MainSearchBoxView.swift */; };
+		E543FC5E2BEFEC1E00C2FFAA /* MainSearchBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543FC5D2BEFEC1E00C2FFAA /* MainSearchBoxViewModel.swift */; };
+		E543FC602BEFECC200C2FFAA /* UITextFieldWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543FC5F2BEFECC200C2FFAA /* UITextFieldWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +112,11 @@
 		5AAADAF32BEFE28C001F7B19 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		E506399D2BEFCE0000A84D05 /* ForecastListLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastListLocationView.swift; sourceTree = "<group>"; };
 		E506399F2BEFCE2300A84D05 /* ForecastListTemperaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastListTemperaturesView.swift; sourceTree = "<group>"; };
+		E543FC572BEFE6D800C2FFAA /* MainHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderView.swift; sourceTree = "<group>"; };
+		E543FC592BEFE6FD00C2FFAA /* MainListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListView.swift; sourceTree = "<group>"; };
+		E543FC5B2BEFEB1100C2FFAA /* MainSearchBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchBoxView.swift; sourceTree = "<group>"; };
+		E543FC5D2BEFEC1E00C2FFAA /* MainSearchBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchBoxViewModel.swift; sourceTree = "<group>"; };
+		E543FC5F2BEFECC200C2FFAA /* UITextFieldWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +179,8 @@
 				5AAADAD32BEF700A001F7B19 /* ForecastViewModel.swift */,
 				5AAADAC32BEF4CF3001F7B19 /* LocationViewModel.swift */,
 				5AAADAEB2BEFAAE9001F7B19 /* LoadingAnimationViewModel.swift */,
+				E543FC5D2BEFEC1E00C2FFAA /* MainSearchBoxViewModel.swift */,
+				E543FC5F2BEFECC200C2FFAA /* UITextFieldWrapper.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -189,11 +201,14 @@
 				5AAADAD12BEF6FC9001F7B19 /* ForecastView.swift */,
 				5AAADAED2BEFAAF0001F7B19 /* LoadingAnimationView.swift */,
 				5AAADAC72BEF4D0C001F7B19 /* LocationView.swift */,
-				5AAADAC92BEF4D15001F7B19 /* MainView.swift */,
-				5AAADACB2BEF4D1B001F7B19 /* SearchView.swift */,
 				5AAADAE92BEFA2E4001F7B19 /* SunIconView.swift */,
 				5AAADAE72BEF967F001F7B19 /* WeatherIconView.swift */,
 				5AAADAF32BEFE28C001F7B19 /* TestView.swift */,
+				5AAADAC92BEF4D15001F7B19 /* MainView.swift */,
+				E543FC5B2BEFEB1100C2FFAA /* MainSearchBoxView.swift */,
+				E543FC572BEFE6D800C2FFAA /* MainHeaderView.swift */,
+				E543FC592BEFE6FD00C2FFAA /* MainListView.swift */,
+				5AAADACB2BEF4D1B001F7B19 /* SearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -308,6 +323,7 @@
 				5AAADACA2BEF4D15001F7B19 /* MainView.swift in Sources */,
 				5AAADAC22BEF4CEE001F7B19 /* DataSavingViewModel.swift in Sources */,
 				5AAADAE62BEF9362001F7B19 /* ForecastDayItemViewModel.swift in Sources */,
+				E543FC602BEFECC200C2FFAA /* UITextFieldWrapper.swift in Sources */,
 				5AAADAEC2BEFAAE9001F7B19 /* LoadingAnimationViewModel.swift in Sources */,
 				5AAADAD82BEF742E001F7B19 /* ForecastHourViewModel.swift in Sources */,
 				5AAADAB62BEF4C43001F7B19 /* SaveData.swift in Sources */,
@@ -316,9 +332,11 @@
 				5AAADAF02BEFB21A001F7B19 /* ForecastTemperatureBarView.swift in Sources */,
 				5AAADAE02BEF7CE8001F7B19 /* ForecastDayViewModel.swift in Sources */,
 				5AAADAA82BEF4C23001F7B19 /* DayText.swift in Sources */,
+				E543FC5E2BEFEC1E00C2FFAA /* MainSearchBoxViewModel.swift in Sources */,
 				5AAADAEE2BEFAAF0001F7B19 /* LoadingAnimationView.swift in Sources */,
 				5AAADAE22BEF8311001F7B19 /* Condition.swift in Sources */,
 				5AAADAC02BEF4CE3001F7B19 /* CurrentLocationManager.swift in Sources */,
+				E543FC5C2BEFEB1100C2FFAA /* MainSearchBoxView.swift in Sources */,
 				5AAADAAA2BEF4C2A001F7B19 /* Forecast.swift in Sources */,
 				5AAADAAC2BEF4C2E001F7B19 /* ForecastData.swift in Sources */,
 				5AAADABA2BEF4CB8001F7B19 /* APICall.swift in Sources */,
@@ -326,9 +344,11 @@
 				5AAADACE2BEF4D22001F7B19 /* ForecastListView.swift in Sources */,
 				5AAADAB42BEF4C3E001F7B19 /* Location.swift in Sources */,
 				5AAADA8C2BEF4BA1001F7B19 /* ContentView.swift in Sources */,
+				E543FC5A2BEFE6FD00C2FFAA /* MainListView.swift in Sources */,
 				5AAADA8A2BEF4BA1001F7B19 /* WeatherApp.swift in Sources */,
 				5AAADAE82BEF967F001F7B19 /* WeatherIconView.swift in Sources */,
 				5AAADA9E2BEF4C0D001F7B19 /* Astronomy.swift in Sources */,
+				E543FC582BEFE6D800C2FFAA /* MainHeaderView.swift in Sources */,
 				5AAADAAE2BEF4C34001F7B19 /* Forecastday.swift in Sources */,
 				5AAADAB82BEF4C48001F7B19 /* WeatherData.swift in Sources */,
 				5AAADAEA2BEFA2E4001F7B19 /* SunIconView.swift in Sources */,
