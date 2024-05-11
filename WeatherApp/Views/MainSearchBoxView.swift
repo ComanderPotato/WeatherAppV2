@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainSearchBoxView: View {
     @StateObject var viewModel = MainSearchBoxViewModel()
-
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             Image(systemName: "magnifyingglass")
