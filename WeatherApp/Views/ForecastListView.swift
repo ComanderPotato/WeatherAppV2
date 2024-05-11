@@ -10,7 +10,7 @@ import SwiftUI
 struct ForecastListView: View {
     @StateObject var viewModel = ForecastViewModel()
     var inputLocation: String
-
+    
     var body: some View {
         ZStack {
             HStack {
