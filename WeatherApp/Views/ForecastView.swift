@@ -21,31 +21,26 @@ struct ForecastView: View {
                     Spacer()
                         .frame(height: 50)
                     ForecastHourView(forecastDay: forecast.forecast.forecastday.first!)
-                    if let forecast = viewModel.forecastData {
-                        VStack {
-                            ForecastHeaderView(location: forecast.location, forecastDay: forecast.forecast.forecastday.first!)
-                            ForecastHourView(forecastDay: forecast.forecast.forecastday.first!)
-                            ForecastDayView(forecastDays: forecast.forecast.forecastday)
-                            
-                        }
-                    } else {
-                        LoadingAnimationView()
-                    }
-                }.task {
-                    do {
-                        try await viewModel.fetchForecast(location: location, days: days)
-                    } catch RequestError.invalidURL {
-                        print("InvalidURL")
-                    } catch RequestError.invalidData {
-                        print("InvalidData")
-                    } catch RequestError.invalidResponse {
-                        print("InvalidResponse")
-                    } catch RequestError.bad {
-                        print("BOO")
-                    } catch {
-                        print("Invalid")
-                    }
+                    ForecastDayView(forecastDays: forecast.forecast.forecastday)
+                    ForecastDayView(forecastDays: forecast.forecast.forecastday)
+                    
                 }
+            } else {
+                LoadingAnimationView()
+            }
+        }.task {
+            do {
+                try await viewModel.fetchForecast(location: location, days: days)
+            } catch RequestError.invalidURL {
+                print("InvalidURL")
+            } catch RequestError.invalidData {
+                print("InvalidData")
+            } catch RequestError.invalidResponse {
+                print("InvalidResponse")
+            } catch RequestError.bad {
+                print("BOO")
+            } catch {
+                print("Invalid")
             }
         }
     }
