@@ -7,12 +7,21 @@
 
 import Foundation
 
-
-class DataSavingViewModel: ObservableObject {
-    private var savedData = Set<String>() //IDs or Long/Lat -> gotta suss it out
+class DataSavingManager: ObservableObject {
+    private var savedData = Set<String>() // IDs or Long/Lat -> gotta suss it out
     private let savedDataKey = "SavedData"
     
     init() {
+        /*
+         Testing - delete later
+         */
+        savedData.insert("Sydney")
+        savedData.insert("Melbourne")
+        savedData.insert("Beijing")
+        savedData.insert("Campbelltown")
+        savedData.insert("Brisbane")
+        savedData.insert("Paris")
+        savedData.insert("Kuala Lumpar")
     }
     
     func getSortedSavedDataList() -> [String] {
@@ -41,5 +50,4 @@ class DataSavingViewModel: ObservableObject {
         let array = Array(savedData)
         UserDefaults.standard.set(array, forKey: savedDataKey)
     }
-    
 }

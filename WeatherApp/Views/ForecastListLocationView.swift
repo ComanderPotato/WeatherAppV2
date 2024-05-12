@@ -36,6 +36,8 @@ struct ForecastListLocationView: View {
     }
 }
 
-//#Preview {
-    //ForecastListLocationView(locationName: "Sydney")
-//}
+/*
+#Preview {
+    ForecastListLocationView(locationName: "Sydney")
+}
+*/

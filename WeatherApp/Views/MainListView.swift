@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct MainListView: View {
+    @StateObject var dataSavingManager = DataSavingManager()
     var body: some View {
         VStack(alignment: .leading) {
-            VStack {
-                // saved for each
+            ForEach(dataSavingManager.getSortedSavedDataList(), id: \.self) { item in
+                ForecastListView(inputLocation: item)
             }
-            Spacer()
         }
+        Spacer()
     }
 }
 

@@ -8,7 +8,6 @@
 import Foundation
 import CoreLocation
 
-// will change it to get coordinates
 class CurrentLocationManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     var locationManager: CLLocationManager!
     @Published var currentCity: String
