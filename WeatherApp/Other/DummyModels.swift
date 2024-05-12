@@ -101,7 +101,7 @@ func createDummyForecastData() -> ForecastData {
 func createDummyForecastday() -> Forecastday {
     let dummyDay = createDummyDay()
     let dummyAstro = createDummyAstro()
-    let dummyHour = [createDummyHour()]
+    let dummyHour = [createDummyHour(), createDummyHour()]
     return Forecastday(date: "2024-05-15",
                        dateEpoch: 1800000000,
                        day: dummyDay,

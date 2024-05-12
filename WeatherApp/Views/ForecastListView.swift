@@ -9,20 +9,18 @@ import SwiftUI
 
 struct ForecastListView: View {
     @StateObject var viewModel = ForecastViewModel()
-    let inputLocation: String
+    @EnvironmentObject var mainListViewModel: MainListItemViewModel
     let isCurrentLocation: Bool
     var body: some View {
         ZStack {
             HStack {
-                if let forecast = viewModel.forecastData {
+                if mainListViewModel.forecastData != nil {
                     HStack {
                         ForecastListLocationView(
-                            currentWeatherData: WeatherData(location: forecast.location, current: forecast.current), isCurrentLocation: isCurrentLocation)
+                            isCurrentLocation: isCurrentLocation).environmentObject(mainListViewModel)
+                        Text("\(mainListViewModel.timer) timer")
                         Spacer()
-                        ForecastListTemperaturesView(
-                            currentDegrees: forecast.current.tempC,
-                            loDegrees: forecast.forecast.forecastday.first?.day.mintempC ?? 0.00,
-                            hiDegrees: forecast.forecast.forecastday.first?.day.maxtempC ?? 0.00)
+                        ForecastListTemperaturesView().environmentObject(mainListViewModel)
                     }
                 } else {
                     LoadingAnimationView()
@@ -33,26 +31,13 @@ struct ForecastListView: View {
             .foregroundStyle(Color("TextColour"))
             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
             .onAppear {
-                Task {
-                    do {
-                        try await viewModel.fetchForecast(location: inputLocation, days: "1")
-                    } catch RequestError.invalidURL {
-                        print("InvalidURL")
-                    } catch RequestError.invalidData {
-                        print("InvalidData")
-                    } catch RequestError.invalidResponse {
-                        print("InvalidResponse")
-                    } catch RequestError.bad {
-                        print("BOO")
-                    } catch {
-                        print("Invalid")
-                    }
-                }
+                // RemoveMe
+//                mainListViewModel.forecastData = createDummyForecastData()
             }
         }
     }
 }
 
 #Preview {
-    ForecastListView(inputLocation: "Sydney", isCurrentLocation: false)
+    ForecastListView(isCurrentLocation: false).environmentObject(MainListItemViewModel())
 }

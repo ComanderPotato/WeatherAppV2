@@ -8,20 +8,38 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var viewModel = MainViewModel()
     
     var body: some View {
-        NavigationStack {
-            ScrollView(showsIndicators: false) {
-                ZStack {
-                    VStack {
-                        // search
-                        MainSearchBarView()
-                        // listview
-                        MainListView()
-                        Spacer()
+    
+        
+        ZStack {
+            if viewModel.locationAuthorizationStatus != .notDetermined {
+                NavigationStack {
+                    ScrollView(showsIndicators: false) {
+                        VStack {
+                            // search
+                            MainSearchBarView() {
+                                MainListView()
+                                    .environmentObject(viewModel)
+                            }
+                                .environmentObject(viewModel)
+                            // listview
+                            
+                            Spacer()
+                        }
                     }
+                }.onAppear {
+                    viewModel.retrieveSavedData()
+//                    viewModel.savedData.forEach {data in
+//                        print(data)
+//                    }
                 }
+            } else {
+                LoadingAnimationView()
             }
+        }.onAppear {
+            viewModel.requestLocation()
         }
     }
 }

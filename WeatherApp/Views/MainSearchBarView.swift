@@ -7,8 +7,11 @@
 
 import SwiftUI
 
-struct MainSearchBarView: View {
+struct MainSearchBarView<Content: View>: View {
     @StateObject var viewModel = MainSearchBarViewModel()
+    @EnvironmentObject var mainViewModel: MainViewModel
+    @ViewBuilder let mainView: Content
+//    let mainView: () -> some View
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             Image(systemName: "magnifyingglass")
@@ -47,32 +50,38 @@ struct MainSearchBarView: View {
         .frame(width: 360)
         .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
         if !viewModel.queriedResults.isEmpty {
+//                NavigationStack {
             ZStack {
-                NavigationStack {
+            
                     List {
                         ForEach(viewModel.queriedResults, id: \.self) { location in
-                            NavigationLink(destination: ForecastView(location: location.name, days: "10", isCurrentLocation: false).toolbar {
-                                Button("Add") {
-                                    // Code to add to local storage
-                                    // Also need to check if not in local storage
-                                    print("Added")
-                                }
-                            }) {
+                            
+//                            NavigationLink(destination: ForecastView(isCurrentLocation: false).environmentObject(mainViewModel).toolbar {
+//                                Button("Add") {
+//                                    // Code to add to local storage
+//                                    // Also need to check if not in local storage
+//                                    mainViewModel.addSavedLocation(latitude: location.lat, longitude: location.lon)
+//                                    print("Added")
+//                                }
+//                            }) {
 //                                ForecastListView(inputLocation: item.name, isCurrentLocation: false)
                                 Text("\(location.name), \(location.region) \(location.country)")
                                     .lineLimit(1)
                                     .truncationMode(.tail)
-                            }
+//                            }
                                 
                         }
                     }
+//                    }
                 }
-
-            }.zIndex(5)
+        } else {
+            mainView
         }
     }
 }
 
 #Preview {
-    MainSearchBarView()
+    MainSearchBarView(){
+        
+    }.environmentObject(MainViewModel())
 }

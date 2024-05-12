@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct ForecastListLocationView: View {
-    let currentWeatherData: WeatherData
+    @EnvironmentObject var mainListViewModel: MainListItemViewModel
     let isCurrentLocation: Bool
     @StateObject var viewModel = ForecastListLocationViewModel()
     var body: some View {
+        if let forecastData = mainListViewModel.forecastData {
             VStack {
                 HStack {
-                    Text(isCurrentLocation ? "My Location" : currentWeatherData.location.name)
+                    Text(isCurrentLocation ? "My Location" : forecastData.location.name)
                         .font(.largeTitle.bold())
                         .lineLimit(1)
                         .minimumScaleFactor(0.2)
@@ -22,17 +23,21 @@ struct ForecastListLocationView: View {
                     Spacer()
                 }
                 HStack {
-                    Text(isCurrentLocation ? currentWeatherData.location.name :  viewModel.time!)
+                    Text(isCurrentLocation ? forecastData.location.name :  viewModel.time!)
                     Spacer()
                 }
                 Spacer()
                 HStack {
-                    Text(currentWeatherData.current.condition.text)
+                    Text(forecastData.current.condition.text)
                     Spacer()
                 }
             }.onAppear {
-                viewModel.formatTime(time: currentWeatherData.location.localtime)
+                viewModel.formatTime(time: forecastData.location.localtime)
             }
+        } else {
+            LoadingAnimationView()
+        }
+            
 //            WeatherIconView(icon: createDummyCondition().icon, dimensions: 50, chanceOfRain: 0)
     }
 } 
@@ -40,7 +45,6 @@ struct ForecastListLocationView: View {
 
 #Preview {
     ForecastListLocationView(
-        currentWeatherData: createDummyWeatherData(),
-        isCurrentLocation: true)
+        isCurrentLocation: true).environmentObject(MainListItemViewModel())
 }
 

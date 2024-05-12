@@ -8,24 +8,27 @@
 import SwiftUI
 
 struct ForecastListTemperaturesView: View {
-    let currentDegrees: Double
-    let loDegrees: Double
-    let hiDegrees: Double
-    
+    @EnvironmentObject var mainListViewModel: MainListItemViewModel
+
     var body: some View {
-        VStack {
-            Text("\(String(format: "%.0f", currentDegrees))°C")
-                .font(.title)
-            HStack {
-                Text("L: \(String(format: "%.0f", loDegrees))°C")
-                    .font(.caption)
-                Text("H: \(String(format: "%.0f", hiDegrees))°C")
-                    .font(.caption)
+        if let forecastData = mainListViewModel.forecastData {
+            VStack {
+                Text("\(String(format: "%.0f", forecastData.current.tempC))°C")
+                    .font(.title)
+                HStack {
+                    Text("L: \(String(format: "%.0f", forecastData.forecast.forecastday.first!.day.mintempC))°C")
+                        .font(.caption)
+                    Text("H: \(String(format: "%.0f", forecastData.forecast.forecastday.first!.day.maxtempC))°C")
+                        .font(.caption)
+                }
             }
+        } else {
+            LoadingAnimationView()
         }
+        
     }
 }
 
 #Preview {
-    ForecastListTemperaturesView(currentDegrees: 20.0, loDegrees: 10.0, hiDegrees: 30.0)
+    ForecastListTemperaturesView().environmentObject(MainListItemViewModel())
 }

@@ -16,6 +16,7 @@ struct ForecastHeaderView: View {
             Text(isCurrentLocation ? "My Location" : location.name)
                 .font(.system(size: 40, weight: Font.Weight.light))
             if isCurrentLocation {
+                
                 Text(location.name.uppercased())
                     .font(.system(size: 20, weight: Font.Weight.light))
             }
