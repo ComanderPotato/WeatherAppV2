@@ -29,7 +29,9 @@ struct MainListView: View {
             } else {
                 LoadingAnimationView()
             }
-        }.task {
+        }.onAppear {
+            currentLocationManager.onViewDidLoad()
+        Task {
             do {
                 await viewModel.waitForLocationToLoad()
                 try await viewModel.fetchForecast(location: currentLocationManager.currentLocation, days: "1")
@@ -44,8 +46,7 @@ struct MainListView: View {
             } catch {
                 print("Invalid")
             }
-        }.onAppear {
-            currentLocationManager.onViewDidLoad()
+        }
         }
     }
 }

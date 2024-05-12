@@ -15,7 +15,7 @@ struct MainView: View {
                 ZStack {
                     VStack {
                         // search
-                        MainSearchBoxView()
+                        MainSearchBarView()
                         // listview
                         MainListView()
                         Spacer()

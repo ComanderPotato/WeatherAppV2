@@ -15,8 +15,10 @@ struct ForecastHeaderView: View {
         VStack {
             Text(isCurrentLocation ? "My Location" : location.name)
                 .font(.system(size: 40, weight: Font.Weight.light))
-            Text(location.name.uppercased())
-                .font(.system(size: 20, weight: Font.Weight.light))
+            if isCurrentLocation {
+                Text(location.name.uppercased())
+                    .font(.system(size: 20, weight: Font.Weight.light))
+            }
             Text("\(String(format: "%.0f", forecastDay.hour.first!.tempC))°")
                 .font(.system(size: 50, weight: Font.Weight.light))
             Text(forecastDay.hour.first!.condition.text)

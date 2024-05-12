@@ -23,7 +23,7 @@ struct ForecastTemperatureBarView: View {
        VStack {
            ZStack(alignment: .leading) {
                RoundedRectangle(cornerRadius: 5)
-                   .frame(maxWidth: outerBarSize, maxHeight: 5)
+                   .frame(width: outerBarSize, height: 5)
                    .foregroundColor(Color.gray.opacity(0.5))
                RoundedRectangle(cornerRadius: 100)
                    .frame(width: innerBarSize, height: 5)

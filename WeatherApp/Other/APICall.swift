@@ -32,3 +32,29 @@ func apiCall<T: Codable>(request: APIRequest, location: String, days: String? = 
         throw RequestError.invalidData
     }
 }
+
+
+func apiCallArray(request: APIRequest, location: String) async throws -> [QueryLocation] {
+    let endPoint = "https://api.weatherapi.com/v1/\(request.rawValue).json?key=\(API_KEY)&q=\(location)"
+    print(endPoint)
+    guard let url = URL(string: endPoint) else {
+        throw RequestError.invalidURL
+    }
+    let (data, response) = try await URLSession.shared.data(from: url)
+    
+    guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+        throw RequestError.invalidResponse
+    }
+    do {
+        let decoder = JSONDecoder()
+        print(data)
+        var locations: [QueryLocation] = []
+        
+//        for i in 0..<data.count {
+//            locations.append(try decoder.decode(Location.self, from: data.))
+//        }
+        return try decoder.decode([QueryLocation].self, from: data)
+    } catch {
+        throw RequestError.invalidData
+    }
+}

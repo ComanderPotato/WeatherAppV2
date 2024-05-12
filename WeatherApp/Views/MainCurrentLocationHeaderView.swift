@@ -41,20 +41,22 @@ struct MainCurrentLocationHeaderView: View {
             .frame(width: 360)
             .foregroundStyle(Color("TextColour"))
             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
-            .task {
-                do {
-                    //await viewModel.waitForLocationToLoad()
-                    try await viewModel.fetchForecast(location: currentLocationManager.currentLocation, days: "1")
-                } catch RequestError.invalidURL {
-                    print("InvalidURL")
-                } catch RequestError.invalidData {
-                    print("InvalidData")
-                } catch RequestError.invalidResponse {
-                    print("InvalidResponse")
-                } catch RequestError.bad {
-                    print("BOO")
-                } catch {
-                    print("Invalid")
+            .onAppear {
+                Task {
+                    do {
+                        //await viewModel.waitForLocationToLoad()
+                        try await viewModel.fetchForecast(location: currentLocationManager.currentLocation, days: "1")
+                    } catch RequestError.invalidURL {
+                        print("InvalidURL")
+                    } catch RequestError.invalidData {
+                        print("InvalidData")
+                    } catch RequestError.invalidResponse {
+                        print("InvalidResponse")
+                    } catch RequestError.bad {
+                        print("BOO")
+                    } catch {
+                        print("Invalid")
+                    }
                 }
             }
         }

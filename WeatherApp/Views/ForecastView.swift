@@ -15,10 +15,11 @@ struct ForecastView: View {
     var body: some View {
         ZStack {
             if let forecast = viewModel.forecastData {
+            
                 ScrollView(showsIndicators: false) {
                     Spacer()
                         .frame(height: 20)
-                    ForecastHeaderView(location: forecast.location, forecastDay: forecast.forecast.forecastday.first!, isCurrentLocation: true)
+                    ForecastHeaderView(location: forecast.location, forecastDay: forecast.forecast.forecastday.first!, isCurrentLocation: isCurrentLocation)
                     Spacer()
                         .frame(height: 50)
                     ForecastHourView(forecastDay: forecast.forecast.forecastday.first!)
@@ -28,19 +29,21 @@ struct ForecastView: View {
             } else {
                 LoadingAnimationView()
             }
-        }.task {
-            do {
-                try await viewModel.fetchForecast(location: location, days: days)
-            } catch RequestError.invalidURL {
-                print("InvalidURL")
-            } catch RequestError.invalidData {
-                print("InvalidData")
-            } catch RequestError.invalidResponse {
-                print("InvalidResponse")
-            } catch RequestError.bad {
-                print("BOO")
-            } catch {
-                print("Invalid")
+        }.onAppear{
+            Task {
+                do {
+                    try await viewModel.fetchForecast(location: location, days: days)
+                } catch RequestError.invalidURL {
+                    print("InvalidURL")
+                } catch RequestError.invalidData {
+                    print("InvalidData")
+                } catch RequestError.invalidResponse {
+                    print("InvalidResponse")
+                } catch RequestError.bad {
+                    print("BOO")
+                } catch {
+                    print("Invalid")
+                }
             }
         }
     }
@@ -48,5 +51,5 @@ struct ForecastView: View {
 
 
 #Preview {
-    ForecastView(location: "Sydney", days: "10", isCurrentLocation: true)
+    ForecastView(location: "Sydney,Miranda", days: "10", isCurrentLocation: false)
 }

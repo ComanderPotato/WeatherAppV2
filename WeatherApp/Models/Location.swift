@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Location: Codable {
+struct Location: Codable, Hashable {
     let name, region, country: String
     let lat, lon: Double
     let tzID: String

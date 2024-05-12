@@ -35,10 +35,10 @@ class ForecastViewModel: ObservableObject {
         guard var hourlyForecasts = self.forecastData?.forecast.forecastday.first?.hour else {
             return
         }
-        var currentDate = Date()
+        let currentDate = Date()
         let currentHour = Calendar.current.component(.hour, from: currentDate)
         
-        for i in 0..<currentHour {
+        for _ in 0..<currentHour {
                 hourlyForecasts.removeFirst()
         }
         self.forecastData!.forecast.forecastday[0].hour = hourlyForecasts
