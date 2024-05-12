@@ -10,12 +10,16 @@ import SwiftUI
 struct MainListView: View {
     @StateObject var dataSavingManager = DataSavingManager()
     var body: some View {
-        VStack(alignment: .leading) {
-            ForEach(dataSavingManager.getSortedSavedDataList(), id: \.self) { item in
-                ForecastListView(inputLocation: item)
+        NavigationStack{
+            VStack(alignment: .leading) {
+                ForEach(dataSavingManager.getSortedSavedDataList(), id: \.self) { item in
+                    NavigationLink(destination: ForecastView(location: item, days: "7")) {
+                        ForecastListView(inputLocation: item)
+                    }
+                }
             }
+            Spacer()
         }
-        Spacer()
     }
 }
 
