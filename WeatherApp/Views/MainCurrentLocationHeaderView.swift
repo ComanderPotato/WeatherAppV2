@@ -43,7 +43,7 @@ struct MainCurrentLocationHeaderView: View {
             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
             .task {
                 do {
-                    await viewModel.waitForLocationToLoad()
+                    //await viewModel.waitForLocationToLoad()
                     try await viewModel.fetchForecast(location: currentLocationManager.currentLocation, days: "1")
                 } catch RequestError.invalidURL {
                     print("InvalidURL")

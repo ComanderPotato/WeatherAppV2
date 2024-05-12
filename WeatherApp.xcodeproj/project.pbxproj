@@ -60,6 +60,7 @@
 		E543FC5C2BEFEB1100C2FFAA /* MainSearchBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543FC5B2BEFEB1100C2FFAA /* MainSearchBoxView.swift */; };
 		E543FC5E2BEFEC1E00C2FFAA /* MainSearchBoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543FC5D2BEFEC1E00C2FFAA /* MainSearchBoxViewModel.swift */; };
 		E543FC602BEFECC200C2FFAA /* UITextFieldWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543FC5F2BEFECC200C2FFAA /* UITextFieldWrapper.swift */; };
+		E57DAABE2BF050AF00700464 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DAABD2BF050AF00700464 /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -117,6 +118,7 @@
 		E543FC5B2BEFEB1100C2FFAA /* MainSearchBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchBoxView.swift; sourceTree = "<group>"; };
 		E543FC5D2BEFEC1E00C2FFAA /* MainSearchBoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainSearchBoxViewModel.swift; sourceTree = "<group>"; };
 		E543FC5F2BEFECC200C2FFAA /* UITextFieldWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldWrapper.swift; sourceTree = "<group>"; };
+		E57DAABD2BF050AF00700464 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +182,11 @@
 				5AAADAC32BEF4CF3001F7B19 /* LocationViewModel.swift */,
 				5AAADAEB2BEFAAE9001F7B19 /* LoadingAnimationViewModel.swift */,
 				E543FC5D2BEFEC1E00C2FFAA /* MainSearchBoxViewModel.swift */,
+<<<<<<< HEAD
 				5AAADAF52BF05DCB001F7B19 /* ForecastListLocationViewModel.swift */,
+=======
+				E57DAABD2BF050AF00700464 /* SearchViewModel.swift */,
+>>>>>>> f9bcf2fd42944c15a359292efdc12c9ce7d616ef
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -365,6 +371,7 @@
 				5AAADAD42BEF700A001F7B19 /* ForecastViewModel.swift in Sources */,
 				5AAADADE2BEF7CE1001F7B19 /* ForecastDayView.swift in Sources */,
 				5AAADAC82BEF4D0C001F7B19 /* LocationView.swift in Sources */,
+				E57DAABE2BF050AF00700464 /* SearchViewModel.swift in Sources */,
 				5AAADABE2BEF4CD9001F7B19 /* APICalls.swift in Sources */,
 				5AAADAA42BEF4C1C001F7B19 /* Current.swift in Sources */,
 			);

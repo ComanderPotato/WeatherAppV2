@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct SearchView: View {
+    @StateObject var viewModel = SearchViewModel()
     @State var inputLocation: String
     var body: some View {
-        Text("SearchView")
+        NavigationStack {
+            VStack(alignment: .leading) {
+                
+                        
+            }
+        }
     }
 }
 
