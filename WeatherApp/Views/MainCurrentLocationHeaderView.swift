@@ -22,8 +22,7 @@ struct MainCurrentLocationHeaderView: View {
                         VStack{
                             Text("Current Location")
                             ForecastListLocationView(
-                                locationName: forecast.location.name,
-                                iconString: forecast.current.condition.icon)
+                                currentWeatherData: WeatherData(location: forecast.location, current: forecast.current), isCurrentLocation: true)
                         }
                         Spacer()
                         ForecastListTemperaturesView(

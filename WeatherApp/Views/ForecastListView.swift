@@ -9,16 +9,15 @@ import SwiftUI
 
 struct ForecastListView: View {
     @StateObject var viewModel = ForecastViewModel()
-    var inputLocation: String
-    
+    let inputLocation: String
+    let isCurrentLocation: Bool
     var body: some View {
         ZStack {
             HStack {
                 if let forecast = viewModel.forecastData {
                     HStack {
                         ForecastListLocationView(
-                            locationName: forecast.location.name,
-                            iconString: forecast.current.condition.icon)
+                            currentWeatherData: WeatherData(location: forecast.location, current: forecast.current), isCurrentLocation: isCurrentLocation)
                         Spacer()
                         ForecastListTemperaturesView(
                             currentDegrees: forecast.current.tempC,
@@ -53,5 +52,5 @@ struct ForecastListView: View {
 }
 
 #Preview {
-    ForecastListView(inputLocation: "Sydney")
+    ForecastListView(inputLocation: "Sydney", isCurrentLocation: false)
 }

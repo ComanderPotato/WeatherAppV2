@@ -10,9 +10,10 @@ import SwiftUI
 struct ForecastHeaderView: View {
     let location: Location
     let forecastDay: Forecastday
+    let isCurrentLocation: Bool
     var body: some View {
         VStack {
-            Text("My Location")
+            Text(isCurrentLocation ? "My Location" : location.name)
                 .font(.system(size: 40, weight: Font.Weight.light))
             Text(location.name.uppercased())
                 .font(.system(size: 20, weight: Font.Weight.light))
@@ -27,5 +28,5 @@ struct ForecastHeaderView: View {
 }
 
 #Preview {
-    ForecastHeaderView(location: createDummyLocation(), forecastDay: createDummyForecastday())
+    ForecastHeaderView(location: createDummyLocation(), forecastDay: createDummyForecastday(), isCurrentLocation: true)
 }

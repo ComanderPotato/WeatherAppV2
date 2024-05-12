@@ -155,8 +155,8 @@ func createDummyHour() -> Hour {
 //                        tzID: "Europe/London",
 //                        localtimeEpoch: 1621062600,
 //                        localtime: "2021-05-15 12:30 PM")
-func createWeatherData(location: Location, current: Current) -> WeatherData {
-    return WeatherData(location: location, current: current)
+func createDummyWeatherData() -> WeatherData {
+    return WeatherData(location: createDummyLocation(), current: createDummyCurrent())
 }
 
 func createDummyLocation() -> Location {
@@ -167,5 +167,5 @@ func createDummyLocation() -> Location {
                     lon: 0.0,
                     tzID: "UTC",
                     localtimeEpoch: 0,
-                    localtime: "1970-01-01 00:00 AM")
+                    localtime: "2024-05-12 12:30")
 }

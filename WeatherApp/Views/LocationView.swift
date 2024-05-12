@@ -13,7 +13,9 @@ struct LocationView: View {
     @State private var forecastData: ForecastData?
     var body: some View {
         ZStack {
-            ForecastHeaderView(location: forecastData?.location ?? createDummyLocation(), forecastDay: forecastData?.forecast.forecastday.first ?? createDummyForecastday())
+            ForecastHeaderView(
+                location: forecastData?.location ?? createDummyLocation(),
+                forecastDay: forecastData?.forecast.forecastday.first ?? createDummyForecastday(), isCurrentLocation: true)
         }.task {
             do {
                 forecastData = try await viewModel.getForecastData(location: "Sydney, Ultimo", days: "5")

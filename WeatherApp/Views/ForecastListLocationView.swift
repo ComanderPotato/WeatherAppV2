@@ -8,36 +8,39 @@
 import SwiftUI
 
 struct ForecastListLocationView: View {
-    let locationName: String
-    let iconString: String
-
+    let currentWeatherData: WeatherData
+    let isCurrentLocation: Bool
+    @StateObject var viewModel = ForecastListLocationViewModel()
     var body: some View {
-        HStack {
-            Text(locationName)
-                .font(.largeTitle.bold())
-                .frame(width: 160, height: 50)
-                .lineLimit(1)
-                .minimumScaleFactor(0.2)
-                .background(.clear, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
-        }
-        AsyncImage(url: URL(string: "https:" + (iconString))) { image in
-            image.resizable()
-                .frame(width: 50, height: 50)
-                .aspectRatio(contentMode: .fit)
-                .clipShape(Circle())
-        } placeholder: {
-            Circle()
-                .foregroundColor(.primary)
-                .frame(width: 20, height: 20)
-                .padding()
-                .background(Color.blue)
-                .clipShape(Rectangle())
-        }
+            VStack {
+                HStack {
+                    Text(isCurrentLocation ? "My Location" : currentWeatherData.location.name)
+                        .font(.largeTitle.bold())
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.2)
+                        .background(.clear, in: RoundedRectangle(cornerRadius: 7, style: .continuous))
+                    Spacer()
+                }
+                HStack {
+                    Text(isCurrentLocation ? currentWeatherData.location.name :  viewModel.time!)
+                    Spacer()
+                }
+                Spacer()
+                HStack {
+                    Text(currentWeatherData.current.condition.text)
+                    Spacer()
+                }
+            }.onAppear {
+                viewModel.formatTime(time: currentWeatherData.location.localtime)
+            }
+//            WeatherIconView(icon: createDummyCondition().icon, dimensions: 50, chanceOfRain: 0)
     }
+} 
+
+
+#Preview {
+    ForecastListLocationView(
+        currentWeatherData: createDummyWeatherData(),
+        isCurrentLocation: true)
 }
 
-/*
-#Preview {
-    ForecastListLocationView(locationName: "Sydney")
-}
-*/

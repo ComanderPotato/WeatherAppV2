@@ -52,6 +52,7 @@
 		5AAADAEE2BEFAAF0001F7B19 /* LoadingAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAADAED2BEFAAF0001F7B19 /* LoadingAnimationView.swift */; };
 		5AAADAF02BEFB21A001F7B19 /* ForecastTemperatureBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAADAEF2BEFB21A001F7B19 /* ForecastTemperatureBarView.swift */; };
 		5AAADAF42BEFE28C001F7B19 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAADAF32BEFE28C001F7B19 /* TestView.swift */; };
+		5AAADAF62BF05DCB001F7B19 /* ForecastListLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AAADAF52BF05DCB001F7B19 /* ForecastListLocationViewModel.swift */; };
 		E506399E2BEFCE0000A84D05 /* ForecastListLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506399D2BEFCE0000A84D05 /* ForecastListLocationView.swift */; };
 		E50639A02BEFCE2300A84D05 /* ForecastListTemperaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506399F2BEFCE2300A84D05 /* ForecastListTemperaturesView.swift */; };
 		E543FC582BEFE6D800C2FFAA /* MainCurrentLocationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E543FC572BEFE6D800C2FFAA /* MainCurrentLocationHeaderView.swift */; };
@@ -108,6 +109,7 @@
 		5AAADAED2BEFAAF0001F7B19 /* LoadingAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingAnimationView.swift; sourceTree = "<group>"; };
 		5AAADAEF2BEFB21A001F7B19 /* ForecastTemperatureBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTemperatureBarView.swift; sourceTree = "<group>"; };
 		5AAADAF32BEFE28C001F7B19 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		5AAADAF52BF05DCB001F7B19 /* ForecastListLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastListLocationViewModel.swift; sourceTree = "<group>"; };
 		E506399D2BEFCE0000A84D05 /* ForecastListLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastListLocationView.swift; sourceTree = "<group>"; };
 		E506399F2BEFCE2300A84D05 /* ForecastListTemperaturesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastListTemperaturesView.swift; sourceTree = "<group>"; };
 		E543FC572BEFE6D800C2FFAA /* MainCurrentLocationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCurrentLocationHeaderView.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				5AAADAC32BEF4CF3001F7B19 /* LocationViewModel.swift */,
 				5AAADAEB2BEFAAE9001F7B19 /* LoadingAnimationViewModel.swift */,
 				E543FC5D2BEFEC1E00C2FFAA /* MainSearchBoxViewModel.swift */,
+				5AAADAF52BF05DCB001F7B19 /* ForecastListLocationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -198,14 +201,14 @@
 				5AAADAD12BEF6FC9001F7B19 /* ForecastView.swift */,
 				5AAADAED2BEFAAF0001F7B19 /* LoadingAnimationView.swift */,
 				5AAADAC72BEF4D0C001F7B19 /* LocationView.swift */,
-				5AAADAE92BEFA2E4001F7B19 /* SunIconView.swift */,
-				5AAADAE72BEF967F001F7B19 /* WeatherIconView.swift */,
-				5AAADAF32BEFE28C001F7B19 /* TestView.swift */,
-				5AAADAC92BEF4D15001F7B19 /* MainView.swift */,
-				E543FC5B2BEFEB1100C2FFAA /* MainSearchBoxView.swift */,
 				E543FC572BEFE6D800C2FFAA /* MainCurrentLocationHeaderView.swift */,
 				E543FC592BEFE6FD00C2FFAA /* MainListView.swift */,
+				E543FC5B2BEFEB1100C2FFAA /* MainSearchBoxView.swift */,
+				5AAADAC92BEF4D15001F7B19 /* MainView.swift */,
 				5AAADACB2BEF4D1B001F7B19 /* SearchView.swift */,
+				5AAADAE92BEFA2E4001F7B19 /* SunIconView.swift */,
+				5AAADAF32BEFE28C001F7B19 /* TestView.swift */,
+				5AAADAE72BEF967F001F7B19 /* WeatherIconView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				5AAADAC42BEF4CF3001F7B19 /* LocationViewModel.swift in Sources */,
 				5AAADADC2BEF7944001F7B19 /* ForecastHourItemViewModel.swift in Sources */,
 				5AAADAF42BEFE28C001F7B19 /* TestView.swift in Sources */,
+				5AAADAF62BF05DCB001F7B19 /* ForecastListLocationViewModel.swift in Sources */,
 				5AAADAE42BEF913A001F7B19 /* ForecastDayItemView.swift in Sources */,
 				E506399E2BEFCE0000A84D05 /* ForecastListLocationView.swift in Sources */,
 				5AAADABC2BEF4CC6001F7B19 /* DummyModels.swift in Sources */,

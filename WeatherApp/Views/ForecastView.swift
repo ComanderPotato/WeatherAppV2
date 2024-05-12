@@ -11,17 +11,17 @@ struct ForecastView: View {
     @StateObject var viewModel = ForecastViewModel()
     let location: String
     let days: String
+    let isCurrentLocation: Bool
     var body: some View {
         ZStack {
             if let forecast = viewModel.forecastData {
                 ScrollView(showsIndicators: false) {
                     Spacer()
                         .frame(height: 20)
-                    ForecastHeaderView(location: forecast.location, forecastDay: forecast.forecast.forecastday.first!)
+                    ForecastHeaderView(location: forecast.location, forecastDay: forecast.forecast.forecastday.first!, isCurrentLocation: true)
                     Spacer()
                         .frame(height: 50)
                     ForecastHourView(forecastDay: forecast.forecast.forecastday.first!)
-                    ForecastDayView(forecastDays: forecast.forecast.forecastday)
                     ForecastDayView(forecastDays: forecast.forecast.forecastday)
                     
                 }
@@ -48,5 +48,5 @@ struct ForecastView: View {
 
 
 #Preview {
-    ForecastView(location: "Sydney", days: "10")
+    ForecastView(location: "Sydney", days: "10", isCurrentLocation: true)
 }

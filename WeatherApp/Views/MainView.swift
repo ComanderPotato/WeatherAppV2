@@ -8,16 +8,14 @@
 import SwiftUI
 
 struct MainView: View {
+    
     var body: some View {
         NavigationStack {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 ZStack {
                     VStack {
                         // search
                         MainSearchBoxView()
-                        // header
-                        MainCurrentLocationHeaderView()
-                            .padding()
                         // listview
                         MainListView()
                         Spacer()
