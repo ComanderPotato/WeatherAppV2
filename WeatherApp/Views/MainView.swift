@@ -11,8 +11,6 @@ struct MainView: View {
     @StateObject var viewModel = MainViewModel()
     
     var body: some View {
-    
-        
         ZStack {
             if viewModel.locationAuthorizationStatus != .notDetermined {
                 NavigationStack {
