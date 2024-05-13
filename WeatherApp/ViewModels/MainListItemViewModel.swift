@@ -20,7 +20,9 @@ class MainListItemViewModel: ObservableObject {
         let currentHour = Calendar.current.component(.hour, from: currentDate)
         
         for _ in 0..<currentHour {
+            if (!hourlyForecasts.isEmpty) {
                 hourlyForecasts.removeFirst()
+            }
         }
         self.forecastData!.forecast.forecastday[0].hour = hourlyForecasts
     }
