@@ -37,7 +37,7 @@ struct ForecastTemperatureBarView: View {
                    Circle()
                        .frame(width: 5)
                        .foregroundStyle(.white)
-                       .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+                       .border(Color.black,width: 1)
                        .offset(x: ballOffset!)
                }
            }

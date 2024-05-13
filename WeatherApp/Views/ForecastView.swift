@@ -24,7 +24,16 @@ struct ForecastView: View {
                         .frame(height: 50)
                     ForecastHourView(forecastDay: forecastData.forecast.forecastday.first!)
                     ForecastDayView(forecastDays: forecastData.forecast.forecastday)
-                    
+                    VStack {
+                        HStack {
+                            WidgetView(icon: "thermometer.medium", title: "FEELS LIKE", info: "19", description: "Similar to")
+                            WidgetView(icon: "drop.fill", title: "FEELS LIKE", info: "19", description: "Similar to")
+                        }
+                        HStack {
+                            WidgetView(icon: "eye.fill", title: "FEELS LIKE", info: "19", description: "Similar to")
+                            WidgetView(icon: "humidity.fill", title: "FEELS LIKE", info: "19", description: "Similar to")
+                        }
+                    }
                 }
             } else {
                 LoadingAnimationView()
@@ -33,8 +42,9 @@ struct ForecastView: View {
             print(mainListItemViewModel.timer)
             mainListItemViewModel.pruneHourlyForecasts()
             // RemoveMe
-//            mainListItemViewModel.forecastData = createDummyForecastData()
+            mainListItemViewModel.forecastData = createDummyForecastData()
         }
+        .padding()
     }
 }
 
