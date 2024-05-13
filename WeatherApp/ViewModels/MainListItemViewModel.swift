@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class MainListItemViewModel: ObservableObject {
     @Published var forecastData: ForecastData? = nil
     @Published var hourlyForecasts: [Hour] = []

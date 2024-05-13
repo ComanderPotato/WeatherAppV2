@@ -169,3 +169,7 @@ func createDummyLocation() -> Location {
                     localtimeEpoch: 0,
                     localtime: "2024-05-12 12:30")
 }
+
+func createDummyQueryLocation() -> QueryLocation {
+    return QueryLocation(id: 1, name: "Dummy", region: "Dummy Region", country: "Dummy Country", lat: 0.0, lon: 0.0, url: "dummy-url")
+}

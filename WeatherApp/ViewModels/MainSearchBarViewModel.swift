@@ -14,10 +14,10 @@ class MainSearchBarViewModel: ObservableObject {
     init() {
         
     }
-    func queryResults() async throws -> Void {
-        queriedResults = try await searchQuery(searchQuery: searchQuery)
+    func updateQueriedResults() async throws -> Void {
+        objectWillChange.send()
     }
-    func searchQuery(searchQuery: String) async throws -> [QueryLocation] {
+    func fetchQueriedResults(searchQuery: String) async throws -> [QueryLocation] {
         return try await apiCallArray(request: APIRequest.search, location: searchQuery)
     }
 }

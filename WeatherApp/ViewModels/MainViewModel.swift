@@ -22,13 +22,7 @@ class MainViewModel:  NSObject, ObservableObject, CLLocationManagerDelegate {
         super.init()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        self.savedData.append("Sydney")
-        self.savedData.append("Melbourne")
-        self.savedData.append("Beijing")
-        self.savedData.append("Campbelltown")
-        self.savedData.append("Brisbane")
-        self.savedData.append("Paris")
-        self.savedData.append("Kuala Lumpar")
+        
     }
 
     func requestLocation() {

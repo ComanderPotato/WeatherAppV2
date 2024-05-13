@@ -17,17 +17,11 @@ struct MainView: View {
             if viewModel.locationAuthorizationStatus != .notDetermined {
                 NavigationStack {
                     ScrollView(showsIndicators: false) {
-                        VStack {
-                            // search
-                            MainSearchBarView() {
-                                MainListView()
-                                    .environmentObject(viewModel)
-                            }
+                        MainSearchBarView() {
+                            MainListView()
                                 .environmentObject(viewModel)
-                            // listview
-                            
-                            Spacer()
-                        }
+                        }.environmentObject(viewModel)
+//                        Spacer()
                     }
                 }.onAppear {
                     viewModel.retrieveSavedData()
