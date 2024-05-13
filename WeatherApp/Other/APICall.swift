@@ -38,7 +38,6 @@ private let API_KEY = "78f67b17b64a41acbbb22331240905"
 func apiCall<T: Codable>(request: APIRequest, location: String) async throws -> T {
 //    let endPoint = "https://api.weatherapi.com/v1/\(request.rawValue).json?key=\(API_KEY)&q=\(location)&days=10&unixdt=\(Date().timeIntervalSince1970)"
     let endPoint = "https://api.weatherapi.com/v1/\(request.rawValue).json?key=\(API_KEY)&q=\(location)&days=10"
-    print(endPoint)
     guard let url = URL(string: endPoint) else {
         throw RequestError.invalidURL
     }

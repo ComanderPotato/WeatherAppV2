@@ -18,7 +18,6 @@ struct ForecastListView: View {
                     HStack {
                         ForecastListLocationView(
                             isCurrentLocation: isCurrentLocation).environmentObject(mainListViewModel)
-                        Text("\(mainListViewModel.timer) timer")
                         Spacer()
                         ForecastListTemperaturesView().environmentObject(mainListViewModel)
                     }

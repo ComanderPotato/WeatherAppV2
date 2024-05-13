@@ -22,7 +22,7 @@ struct ForecastView: View {
                     
 
                         .frame(height: 50)
-                    ForecastHourView(forecastDay: forecastData.forecast.forecastday.first!)
+                    ForecastHourView().environmentObject(mainListItemViewModel)
                     ForecastDayView(forecastDays: forecastData.forecast.forecastday)
                     VStack {
                         HStack {
@@ -39,10 +39,9 @@ struct ForecastView: View {
                 LoadingAnimationView()
             }
         }.onAppear{
-            print(mainListItemViewModel.timer)
-            mainListItemViewModel.pruneHourlyForecasts()
+            mainListItemViewModel.prepareHourlyForecasts()
             // RemoveMe
-            mainListItemViewModel.forecastData = createDummyForecastData()
+//            mainListItemViewModel.forecastData = createDummyForecastData()
         }
         .padding()
     }

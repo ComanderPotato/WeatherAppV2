@@ -9,25 +9,40 @@ import Foundation
 
 class MainListItemViewModel: ObservableObject {
     @Published var forecastData: ForecastData? = nil
-    @Published var timer: Int = 0
+    @Published var hourlyForecasts: [Hour] = []
     init() {}
     
-    func pruneHourlyForecasts() -> Void {
-        guard var hourlyForecasts = self.forecastData?.forecast.forecastday.first?.hour else {
+    func prepareHourlyForecasts() -> Void {
+        guard let forecastData = self.forecastData else {
             return
         }
-        let currentDate = Date()
-        let currentHour = Calendar.current.component(.hour, from: currentDate)
-        
-        for _ in 0..<currentHour {
-            if (!hourlyForecasts.isEmpty) {
-                hourlyForecasts.removeFirst()
+        guard !forecastData.forecast.forecastday.isEmpty else {
+            return
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+
+        if let localTimeDate = dateFormatter.date(from: forecastData.location.localtime) {
+            
+            let localTimeHour = Calendar.current.component(.hour, from: localTimeDate)
+            print(localTimeHour)
+            forecastData.forecast.forecastday.first!.hour.forEach { hourlyForecast in
+                if let forecastDate = dateFormatter.date(from: hourlyForecast.time) {
+                    let forecastHour = Calendar.current.component(.hour, from: forecastDate)
+                    if localTimeHour <= forecastHour {
+                        self.hourlyForecasts.append(hourlyForecast)
+                    }
+                }
             }
         }
-        self.forecastData!.forecast.forecastday[0].hour = hourlyForecasts
+        forecastData.forecast.forecastday[1].hour.forEach { hourlyForecast in
+            if self.hourlyForecasts.count <= 24 {
+                self.hourlyForecasts.append(hourlyForecast)
+
+            }
+        }
     }
     func updateForecastData() -> Void {
-        self.timer += 1
         objectWillChange.send()
     }
     func fetchForecastData(location: String) async throws -> ForecastData {
