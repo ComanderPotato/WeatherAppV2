@@ -25,11 +25,11 @@ struct MainListItemView: View {
                 LoadingAnimationView()
             }
         }.onReceive(timer.throttle(for: .seconds(60), scheduler: DispatchQueue.main, latest: true)) { _ in
-            //        }.onReceive(timer.throttle(for: 60, scheduler: DispatchQueue.main, latest: true)) { _ in
+//        }.onReceive(timer.throttle(for: 60, scheduler: DispatchQueue.main, latest: true)) { _ in
             Task {
                 // Your code to fetch data goes here
                 do {
-                    viewModel.forecastData = try await viewModel.fetchForecastData(location: location)
+                    viewModel.forecastData =  try await viewModel.fetchForecastData(location: location)
                     viewModel.updateForecastData()
                 } catch RequestError.invalidURL {
                     print("InvalidURL")
