@@ -1,6 +1,4 @@
-## **WeatherApp**
-
-## WeatherApp: A Simple and Modern Weather App
+## **WeatherApp: A Simple and Modern Weather App**
 
 WeatherApp is a SwiftUI application designed to provide a clear and concise view of current weather conditions and location. It utilises the latest SwiftUI features, including glassmorphism, for a sleek contemporary design.
 
