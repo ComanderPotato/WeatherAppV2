@@ -10,7 +10,9 @@ import SwiftUI
 struct LoadingAnimationView: View {
     @StateObject var viewModel = LoadingAnimationViewModel()
     var body: some View {
-        VStack {
+//        VStack {
+                
+            
             RoundedRectangle(cornerRadius: viewModel.cornerRadius)
                 .foregroundStyle(.blue)
                 .frame(width: viewModel.width, height: viewModel.height)
@@ -18,7 +20,7 @@ struct LoadingAnimationView: View {
                 .onAppear(perform: {
                     viewModel.startAnimating()
                 })
-        }
+//        }
     }
 }
 

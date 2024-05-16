@@ -20,14 +20,11 @@ struct MainView: View {
                         MainSearchBarView() {
                             MainListView()
                                 .environmentObject(viewModel)
+                                
                         }.environmentObject(viewModel)
-//                        Spacer()
                     }
                 }.onAppear {
                     viewModel.retrieveSavedData()
-//                    viewModel.savedData.forEach {data in
-//                        print(data)
-//                    }
                 }
             } else {
                 LoadingAnimationView()

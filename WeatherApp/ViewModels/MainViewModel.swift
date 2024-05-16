@@ -8,12 +8,16 @@
 import Foundation
 import CoreLocation
 
+enum FocusedView {
+    case searchBarFocused
+    case mainViewFocused
+}
+
 class MainViewModel:  NSObject, ObservableObject, CLLocationManagerDelegate {
     private var locationManager = CLLocationManager()
     @Published var userLocation: CLLocation?
-    
-//    @Published var savedData = NSMutableOrderedSet(set:  Set<String>()) // IDs or Long/Lat -> gotta suss it out
     @Published var savedData: [String] = []
+    @Published var focusedState: FocusedView = .mainViewFocused
     @Published var locationAuthorizationStatus: CLAuthorizationStatus = .notDetermined
 
     private let SAVED_DATA_KEY = "SavedData"
@@ -22,71 +26,61 @@ class MainViewModel:  NSObject, ObservableObject, CLLocationManagerDelegate {
         super.init()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        
     }
 
-    func requestLocation() {
+    func requestLocation() -> Void {
         locationManager.requestLocation()
     }
-
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) -> Void {
         if let location = locations.last {
             DispatchQueue.main.async {
                 self.userLocation = location
-//                self.savedData.add("\(location.coordinate.latitude),\(location.coordinate.longitude)")
-
             }
         }
     }
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) -> Void {
         DispatchQueue.main.async {
             self.locationAuthorizationStatus = status
         }
     }
-    
-
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) -> Void {
         print("Failed to fetch location: \(error.localizedDescription)")
     }
-    
-//    func getSortedSavedDataList() -> [String] {
-//        self.retrieveSavedData()
-//        let savedDataArr = Array(savedData)
-//        return savedDataArr.sorted()
-//    }
-    
-    func retrieveSavedData() {
-        if let location = self.userLocation {
-//            self.savedData.add("\(location.coordinate.latitude),\(location.coordinate.longitude)")
+    func retrieveSavedData() -> Void {
+        if let location = self.userLocation, !isLocationAlreadySaved(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)  {
             self.savedData.append("\(location.coordinate.latitude),\(location.coordinate.longitude)")
-            
         }
         if let array = UserDefaults.standard.array(forKey: self.SAVED_DATA_KEY) as? [String] {
             array.forEach{ data in
-//                self.savedData.add(data)
                 self.savedData.append(data)
             }
         }
         
     }
-        
-    func addSavedLocation(latitude: Double, longitude: Double) {
-        self.savedData.append("\(latitude),\(longitude)")
-        self.saveData()
+    func addSavedLocation(latitude: Double, longitude: Double) -> Void {
+        if(!isLocationAlreadySaved(latitude: latitude, longitude: longitude)) {
+            self.savedData.append("\(latitude),\(longitude)")
+            self.saveData()
+        }
     }
-    
-    func removeSavedLocation(latitude: Double, longitude: Double) {
+
+    func isLocationAlreadySaved(latitude: Double, longitude: Double) -> Bool {
+        if let array = UserDefaults.standard.array(forKey: self.SAVED_DATA_KEY) as? [String] {
+            print(array.contains("\(latitude),\(longitude)"))
+            return array.contains("\(latitude),\(longitude)");
+        }
+        return false
+    }
+    func removeSavedLocation(latitude: Double, longitude: Double) -> Void {
         for i in 0..<self.savedData.count  {
             if self.savedData[i] == "\(latitude),\(longitude)" {
                 self.savedData.remove(at: i)
+                self.saveData()
+                return
             }
         }
-//        self.savedData.remove("\(latitude),\(longitude)")
-        self.saveData()
     }
-    
-    private func saveData() {
-//        let array = Array(self.savedData)
+    private func saveData() -> Void {
         UserDefaults.standard.set(self.savedData, forKey: self.SAVED_DATA_KEY)
     }
 }

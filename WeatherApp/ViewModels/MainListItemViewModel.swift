@@ -12,7 +12,7 @@ class MainListItemViewModel: ObservableObject {
     @Published var forecastData: ForecastData? = nil
     @Published var hourlyForecasts: [Hour] = []
     init() {}
-    
+
     func prepareHourlyForecasts() -> Void {
         guard let forecastData = self.forecastData else {
             return
@@ -24,9 +24,7 @@ class MainListItemViewModel: ObservableObject {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
 
         if let localTimeDate = dateFormatter.date(from: forecastData.location.localtime) {
-            
             let localTimeHour = Calendar.current.component(.hour, from: localTimeDate)
-            print(localTimeHour)
             forecastData.forecast.forecastday.first!.hour.forEach { hourlyForecast in
                 if let forecastDate = dateFormatter.date(from: hourlyForecast.time) {
                     let forecastHour = Calendar.current.component(.hour, from: forecastDate)

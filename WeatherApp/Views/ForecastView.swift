@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ForecastView: View {
     let isCurrentLocation: Bool
-    @StateObject var viewModel = ForecastViewModel()
     @EnvironmentObject var mainListItemViewModel: MainListItemViewModel
     var body: some View {
         ZStack {
@@ -40,8 +39,6 @@ struct ForecastView: View {
             }
         }.onAppear{
             mainListItemViewModel.prepareHourlyForecasts()
-            // RemoveMe
-//            mainListItemViewModel.forecastData = createDummyForecastData()
         }
         .padding()
     }

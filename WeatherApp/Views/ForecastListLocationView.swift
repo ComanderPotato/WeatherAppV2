@@ -37,8 +37,6 @@ struct ForecastListLocationView: View {
         } else {
             LoadingAnimationView()
         }
-            
-//            WeatherIconView(icon: createDummyCondition().icon, dimensions: 50, chanceOfRain: 0)
     }
 } 
 

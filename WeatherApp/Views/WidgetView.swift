@@ -16,12 +16,17 @@ struct WidgetView: View {
             VStack {
                 HStack {
                     Image(systemName: icon)
+                        .foregroundColor(Color.black.opacity(0.5))
+                        .frame(width: 5, height: 5)
+                        .padding(.trailing, 10)
                     Text(title)
+                        .foregroundColor(Color.black.opacity(0.5))
                     Spacer()
                 }
                 
                 HStack {
                     Text(info)
+                        .foregroundColor(Color.black.opacity(0.5))
                     Spacer()
                 }
                 Spacer()

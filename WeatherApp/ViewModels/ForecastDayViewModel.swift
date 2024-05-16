@@ -13,7 +13,6 @@ class ForecastDayViewModel: ObservableObject {
     init() {}
     
     func setWeekLowAndHigh(forecastDays: [Forecastday]) -> Void {
-        
         for i in 0..<forecastDays.count {
             let currentLow: Int = Int(forecastDays[i].day.mintempC)
             let currentHigh: Int = Int(forecastDays[i].day.maxtempC)

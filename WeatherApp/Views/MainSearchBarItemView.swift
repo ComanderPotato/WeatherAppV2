@@ -17,11 +17,10 @@ struct MainSearchBarItemView: View {
 
     var body: some View {
                 NavigationLink(destination: ForecastView(isCurrentLocation: false).environmentObject(viewModel).toolbar {
-                    Button("Add") {
-                        // Code to add to local storage
-                        // Also need to check if not in local storage
-                        mainViewModel.addSavedLocation(latitude: queriedLocation.lat, longitude: queriedLocation.lon)
-                        print("Added")
+                    if(!mainViewModel.isLocationAlreadySaved(latitude: queriedLocation.lat, longitude: queriedLocation.lon)) {
+                        Button("Add") {
+                            mainViewModel.addSavedLocation(latitude: queriedLocation.lat, longitude: queriedLocation.lon)
+                        }
                     }
                 }) {
                     HStack {
@@ -41,8 +40,6 @@ struct MainSearchBarItemView: View {
                 print("InvalidData")
             } catch RequestError.invalidResponse {
                 print("InvalidResponse")
-            } catch RequestError.bad {
-                print("BOO")
             } catch {
                 print("Invalid")
             }

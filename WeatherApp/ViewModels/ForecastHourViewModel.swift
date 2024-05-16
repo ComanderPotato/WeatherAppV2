@@ -15,7 +15,24 @@ class ForecastHourViewModel: ObservableObject {
     @Published var sunriseTime: String = ""
     @Published var sunsetTime: String = ""
     init() {}
-
+    func isSunrise(time: String) -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        guard let currentHourFormat = dateFormatter.date(from: time) else {
+            return false
+        }
+        let currentHour = Calendar.current.component(.hour, from: currentHourFormat)
+        return currentHour == self.sunriseIndex
+    }
+    func isSunset(time: String) -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        guard let currentHourFormat = dateFormatter.date(from: time) else {
+            return false
+        }
+        let currentHour = Calendar.current.component(.hour, from: currentHourFormat)
+        return currentHour == self.sunsetIndex
+    }
     func configureSunriseAndSunset(astro: Astro) -> Void {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm a"

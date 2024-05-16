@@ -20,16 +20,16 @@ class LoadingAnimationViewModel: ObservableObject {
     init() {
         
     }
-    func startAnimating() {
+    func startAnimating() -> Void {
         self.timer?.invalidate()
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
             self.rotateCube()
         }
     }
-    func stopAnimating() {
+    func stopAnimating() -> Void{
         self.timer?.invalidate()
     }
-    func rotateCube() {
+    func rotateCube() -> Void {
         self.rotation += 5
         if cornerRadius > 50 {
             cornerRadiusIncrementor = -0.75

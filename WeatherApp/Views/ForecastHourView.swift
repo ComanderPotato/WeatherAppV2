@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ForecastHourView: View {
-//    let forecastDay: Forecastday
     @StateObject var viewModel = ForecastHourViewModel()
     @EnvironmentObject var mainListItemViewModel: MainListItemViewModel
     var body: some View {
@@ -25,24 +24,25 @@ struct ForecastHourView: View {
                     HStack(spacing: 20) {
                         ForEach(mainListItemViewModel.hourlyForecasts.indices, id: \.self) { index in
                             ForecastHourItemView(forecastHour: mainListItemViewModel.hourlyForecasts[index], index: index)
+                            if viewModel.isSunrise(time: mainListItemViewModel.hourlyForecasts[index].time) {
+                                SunIconView(title: "Sunrise", time: viewModel.sunriseTime, isSunRise: true)
+                            }
+                            if viewModel.isSunset(time: mainListItemViewModel.hourlyForecasts[index].time) {
+                                SunIconView(title: "Sunset", time: viewModel.sunsetTime, isSunRise: false)
+                            }
+                            
                         }
-//                        ForEach(forecastDay.hour.indices, id: \.self) { index in
-//                            ForecastHourItemView(forecastHour: forecastDay.hour[index], index: index)
-//                            if(index == viewModel.sunriseIndex) {
-//                                SunIconView(title: "Sunrise", time: viewModel.sunriseTime,
-//                                            icon: "//cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Sunrise_Sun_Daybreak_Down_Morning_Apple_Weather-1024.png")
-//                            } else if(index == viewModel.sunsetIndex) {
-//                                SunIconView(title: "Sunset", time: viewModel.sunsetTime,
-//                                            icon: "//cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Sunset_Nightfall_Sundown_Dusk_Twilight_Apple_Weather-1024.png")
-//                            }
-//                        }
+                        
+
                     }
                 }.padding(.vertical)
             }
             .padding()
             .background(RoundedRectangle(cornerRadius: 10).fill(.thickMaterial))
                 .onAppear {
-//                    viewModel.configureSunriseAndSunset(astro: forecastDay.astro)
+                    if let astroData = mainListItemViewModel.forecastData!.forecast.forecastday.first?.astro {
+                        viewModel.configureSunriseAndSunset(astro: astroData)
+                    }
                 }
             }
     }

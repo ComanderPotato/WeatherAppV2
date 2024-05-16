@@ -35,12 +35,11 @@ class DataSavingManager: ObservableObject {
             savedData = Set(array)
         }
     }
-        
+    
     func addSavedLocation(forecastID: String) {
         savedData.insert(forecastID)
         saveData()
     }
-    
     func removeSavedLocation(forecastID: String) {
         savedData.remove(forecastID)
         saveData()
