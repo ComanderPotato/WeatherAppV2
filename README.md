@@ -39,7 +39,7 @@ Screenshots... will add when finished (or latest v)
 
 The weather dashboard features a search bar at the top to easily find weather information for other locations:
 
-1) Enter Location: Type the desired location (city, zip code, etc.) into the search bar.
+1) Enter Location: Type the desired location into the search bar.
 
 2) Select Location: Choose the specific location you want to view from the search suggestions.
 
