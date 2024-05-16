@@ -1,10 +1,11 @@
 ## **WeatherApp**
 
-WeatherApp: A Simple and Modern Weather App
+## WeatherApp: A Simple and Modern Weather App
 
 WeatherApp is a SwiftUI application designed to provide a clear and concise view of current weather conditions and location. It utilises the latest SwiftUI features, including glassmorphism, for a sleek contemporary design.
 
-Key Features:
+
+## Key Features:
 
 + Optimised Data Fetching: Asynchronous data fetching ensures quick updates on current weather conditions.
 + Simple and Easy to Read: WeatherApp prioritises ease of use with a user-friendly interface that allows you to see the weather information at a glance.
@@ -18,7 +19,7 @@ Screenshots... will add when finished (or latest v)
 
 
 
-Tech/Framework:
+## Tech/Framework:
 
 * SwiftUI
 * WeatherApi: https://www.weatherapi.com/docs/
@@ -26,7 +27,7 @@ Tech/Framework:
 
 
 
-Getting Started
+## Getting Started
 
 1) Download and Launch: Download the WeatherApp and open it on your device.
 
@@ -36,7 +37,7 @@ Getting Started
 
 
 
-Searching for Locations
+## Searching for Locations
 
 The weather dashboard features a search bar at the top to easily find weather information for other locations:
 
@@ -48,7 +49,7 @@ The weather dashboard features a search bar at the top to easily find weather in
 
 
 
-Accessing Detailed Forecasts
+## Accessing Detailed Forecasts
 
 There are two ways to access detailed weather forecasts within WeatherApp:
 
@@ -57,7 +58,7 @@ There are two ways to access detailed weather forecasts within WeatherApp:
 2) Search Functionality: Utilise the search bar on the dashboard to find a specific location (see "Searching for Locations"). Selecting a location from the search results will also display its detailed forecast.
 
 
-Saving Favorite Locations
+## Saving Favorite Locations
 
 WeatherApp allows you to save frequently viewed locations for quick and easy access:
 
