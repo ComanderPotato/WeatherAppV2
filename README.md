@@ -25,7 +25,17 @@ WeatherApp is a SwiftUI application designed to provide a clear and concise view
         |--ForecastDayItemView
             |--WeatherIconView
             |--ForecastTemperatureBarView
-            
+
+├── README.md
+├── WeatherApp
+│   ├── Models
+│   │   ├── Astro.swift
+│   │   ├── Astronomy.swift
+│   │   ├── AstronomyData.swift
+│   │   ├── Condition.swift
+│   │   ├── Current.swift
+│   │   ├── Day.swift
+
 ## Description on Each View:
 ### MainView:
 This view main entry point into the application. On appearance, it requests the users location which show at the top of their view depending on their selection. The MainView is also paired with a MainViewModel, which handles necessary functionionaility such as, requesting location, saving, removing and deleting from local storage. This MainViewModel is also an environment object that gets passed down to the necessary views that requires these functions. The view holds other views as well, such as the MainSearchBarView, and the MainListView which is passed as Content to the view previously mentioned.
