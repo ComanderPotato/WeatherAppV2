@@ -4,37 +4,27 @@ WeatherApp is a SwiftUI application designed to provide a clear and concise view
 
 ## Application Structure:
 ### Main Structure:
-|--MainView: The main view for the 
-    |--MainSearchBarView 
-        |--MainSearchBarFieldVIew
-        |--MainSearchBarItemView
-            |--ForecastView
-    |--MainListView
-        |--MainListItemView
-            |--ForecastView
-            |--ForecastListView
-                |--ForecastListLocationView
-                |--ForecastListTemperaturesView  
+|--MainView <br />
+    |--MainSearchBarView <br /> 
+        |--MainSearchBarFieldVIew <br />
+        |--MainSearchBarItemView <br />
+            |--ForecastView <br />
+    |--MainListView <br />
+        |--MainListItemView <br />
+            |--ForecastView <br />
+            |--ForecastListView <br />
+                |--ForecastListLocationView <br />
+                |--ForecastListTemperaturesView  <br />
 ### Forecast Structure
-|--ForecastView
-    |--ForecastHeaderView
-    |--ForecastHourView
-        |--ForecastHourItemView
-        |--SunIconView
-    |--ForecastDayView
-        |--ForecastDayItemView
-            |--WeatherIconView
-            |--ForecastTemperatureBarView
-
-├── README.md
-├── WeatherApp
-│   ├── Models
-│   │   ├── Astro.swift
-│   │   ├── Astronomy.swift
-│   │   ├── AstronomyData.swift
-│   │   ├── Condition.swift
-│   │   ├── Current.swift
-│   │   ├── Day.swift
+|--ForecastView <br />
+    |--ForecastHeaderView <br />
+    |--ForecastHourView <br />
+        |--ForecastHourItemView <br />
+        |--SunIconView <br />
+    |--ForecastDayView <br />
+        |--ForecastDayItemView <br />
+            |--WeatherIconView <br />
+            |--ForecastTemperatureBarView <br />
 
 ## Description on Each View:
 ### MainView:
