@@ -81,12 +81,6 @@ This view is a temperature bar, which is displays a gradient showing the minimum
 + Accessibility Focus: The app prioritises accessibility with high-contrast text and clear UI elements.
 
 
-
-Screenshots... will add when finished (or latest v)
-
-
-
-
 ## Tech/Framework:
 
 * SwiftUI
@@ -138,8 +132,3 @@ WeatherApp allows you to save frequently viewed locations for quick and easy acc
 
 Note: WeatherApp has a limit of 10 saved locations (including your current location) displayed on the main dashboard.
 
-
-
-Things to further project: optional. . .
-
-// list of things for R2 etc...
