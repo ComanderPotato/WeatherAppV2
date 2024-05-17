@@ -14,7 +14,6 @@ struct MainSearchBarItemView: View {
     @EnvironmentObject var mainViewModel: MainViewModel
     let timer = Timer.publish(every: 1, on: .main, in: .common)
         .autoconnect()
-
     var body: some View {
                 NavigationLink(destination: ForecastView(isCurrentLocation: false).environmentObject(viewModel).toolbar {
                     if(!mainViewModel.isLocationAlreadySaved(latitude: queriedLocation.lat, longitude: queriedLocation.lon)) {

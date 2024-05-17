@@ -66,7 +66,6 @@ class MainViewModel:  NSObject, ObservableObject, CLLocationManagerDelegate {
 
     func isLocationAlreadySaved(latitude: Double, longitude: Double) -> Bool {
         if let array = UserDefaults.standard.array(forKey: self.SAVED_DATA_KEY) as? [String] {
-            print(array.contains("\(latitude),\(longitude)"))
             return array.contains("\(latitude),\(longitude)");
         }
         return false

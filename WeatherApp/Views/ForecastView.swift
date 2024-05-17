@@ -16,7 +16,7 @@ struct ForecastView: View {
                 ScrollView(showsIndicators: false) {
                     Spacer()
                         .frame(height: 20)
-                    ForecastHeaderView(location: forecastData.location, forecastDay: forecastData.forecast.forecastday.first!, isCurrentLocation: isCurrentLocation)
+                    ForecastHeaderView(isCurrentLocation: isCurrentLocation).environmentObject(mainListItemViewModel)
                     Spacer()
                     
 

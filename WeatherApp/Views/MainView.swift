@@ -11,8 +11,6 @@ struct MainView: View {
     @StateObject var viewModel = MainViewModel()
     
     var body: some View {
-    
-        
         ZStack {
             if viewModel.locationAuthorizationStatus != .notDetermined {
                 NavigationStack {
@@ -20,7 +18,6 @@ struct MainView: View {
                         MainSearchBarView() {
                             MainListView()
                                 .environmentObject(viewModel)
-                                
                         }.environmentObject(viewModel)
                     }
                 }.onAppear {
