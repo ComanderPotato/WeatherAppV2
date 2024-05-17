@@ -5,26 +5,26 @@ WeatherApp is a SwiftUI application designed to provide a clear and concise view
 ## Application Structure:
 ### Main Structure:
 |--MainView <br />
-&nbsp;   |--MainSearchBarView <br /> 
-&nbsp;&nbsp;        |--MainSearchBarFieldVIew <br />
-&nbsp;&nbsp;        |--MainSearchBarItemView <br />
-&nbsp;&nbsp;&nbsp;            |--ForecastView <br />
-&nbsp;    |--MainListView <br />
-&nbsp;&nbsp;        |--MainListItemView <br />
-&nbsp;&nbsp;&nbsp;            |--ForecastView <br />
-&nbsp;&nbsp;&nbsp;            |--ForecastListView <br />
-&nbsp;&nbsp;&nbsp;&nbsp;                |--ForecastListLocationView <br />
-&nbsp;&nbsp;&nbsp;&nbsp;                |--ForecastListTemperaturesView  <br />
+&emsp;   |--MainSearchBarView <br /> 
+&emsp;&emsp;        |--MainSearchBarFieldVIew <br />
+&emsp;&emsp;        |--MainSearchBarItemView <br />
+&emsp;&emsp;&emsp;            |--ForecastView <br />
+&emsp;    |--MainListView <br />
+&emsp;&emsp;        |--MainListItemView <br />
+&emsp;&emsp;&emsp;            |--ForecastView <br />
+&emsp;&emsp;&emsp;            |--ForecastListView <br />
+&emsp;&emsp;&emsp;&emsp;                |--ForecastListLocationView <br />
+&emsp;&emsp;&emsp;&emsp;                |--ForecastListTemperaturesView  <br />
 ### Forecast Structure
 |--ForecastView <br />
-&nbsp;    |--ForecastHeaderView <br />
-&nbsp;    |--ForecastHourView <br />
-&nbsp;&nbsp;        |--ForecastHourItemView <br />
-&nbsp;&nbsp;        |--SunIconView <br />
-&nbsp;    |--ForecastDayView <br />
-&nbsp;&nbsp;        |--ForecastDayItemView <br />
-&nbsp;&nbsp;&nbsp;            |--WeatherIconView <br />
-&nbsp;&nbsp;&nbsp;            |--ForecastTemperatureBarView <br />
+&emsp;    |--ForecastHeaderView <br />
+&emsp;    |--ForecastHourView <br />
+&emsp;&emsp;        |--ForecastHourItemView <br />
+&emsp;&emsp;        |--SunIconView <br />
+&emsp;    |--ForecastDayView <br />
+&emsp;&emsp;        |--ForecastDayItemView <br />
+&emsp;&emsp;&emsp;            |--WeatherIconView <br />
+&emsp;&emsp;&emsp;            |--ForecastTemperatureBarView <br />
 
 ## Description on Each View:
 ### MainView:
