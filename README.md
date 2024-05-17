@@ -4,27 +4,27 @@ WeatherApp is a SwiftUI application designed to provide a clear and concise view
 
 ## Application Structure:
 ### Main Structure:
-|__MainView: The main view for the 
-    |__MainSearchBarView 
-        |__MainSearchBarFieldVIew
-        |__MainSearchBarItemView
-            |__ForecastView
-    |__MainListView
-        |__MainListItemView
-            |__ForecastView
-            |__ForecastListView
-                |__ForecastListLocationView
-                |__ForecastListTemperaturesView  
+|--MainView: The main view for the 
+    |--MainSearchBarView 
+        |--MainSearchBarFieldVIew
+        |--MainSearchBarItemView
+            |--ForecastView
+    |--MainListView
+        |--MainListItemView
+            |--ForecastView
+            |--ForecastListView
+                |--ForecastListLocationView
+                |--ForecastListTemperaturesView  
 ### Forecast Structure
-|__ForecastView
-    |__ForecastHeaderView
-    |__ForecastHourView
-        |__ForecastHourItemView
-        |__SunIconView
-    |__ForecastDayView
-        |__ForecastDayItemView
-            |__WeatherIconView
-            |__ForecastTemperatureBarView
+|--ForecastView
+    |--ForecastHeaderView
+    |--ForecastHourView
+        |--ForecastHourItemView
+        |--SunIconView
+    |--ForecastDayView
+        |--ForecastDayItemView
+            |--WeatherIconView
+            |--ForecastTemperatureBarView
             
 ## Description on Each View:
 ### MainView:
