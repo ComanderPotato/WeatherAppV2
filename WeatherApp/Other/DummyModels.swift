@@ -6,9 +6,7 @@
 //
 
 import Foundation
-
-
-
+// Bunch of dummy models used for development
 func createDummyAstro() -> Astro {
     return Astro(sunrise: "6:00 AM",
                  sunset: "6:00 PM",

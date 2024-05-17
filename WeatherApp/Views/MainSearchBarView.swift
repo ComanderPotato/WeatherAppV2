@@ -19,12 +19,7 @@ struct MainSearchBarView<Content: View>: View {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(.gray)
                     .padding(.trailing, 8)
-//                TextField(
-//                    "Search",
-//                    text: $viewModel.searchQuery
-//                )
-                
-                UITextFieldWrapper(text: $viewModel.searchQuery).textInputAutocapitalization(.never)
+                MainSearchBarFieldView(text: $viewModel.searchQuery).textInputAutocapitalization(.never)
                     .onChange(of: viewModel.searchQuery) { newValue, _ in
                         if viewModel.searchQuery.count >= 3 {
                             Task {

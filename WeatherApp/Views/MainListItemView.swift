@@ -23,13 +23,7 @@ struct MainListItemView: View {
                             Button("Remove") {
                                 mainViewModel.removeSavedLocation(latitude: forecastData.location.lat, longitude: forecastData.location.lon)
                             }
-                        } else {
-                            Button("Add") {
-                                mainViewModel.addSavedLocation(latitude: forecastData.location.lat, longitude: forecastData.location.lon)
-                            }
                         }
-                    
-                    
                 }) {
                     ForecastListView(isCurrentLocation: isCurrentLocation)
                         .environmentObject(viewModel)

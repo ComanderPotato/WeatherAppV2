@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct UITextFieldWrapper: UIViewRepresentable {
+struct MainSearchBarFieldView: UIViewRepresentable {
     @Binding var text: String
     
     func makeUIView(context: Context) -> UITextField {

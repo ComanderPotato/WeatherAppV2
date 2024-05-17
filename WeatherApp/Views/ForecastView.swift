@@ -12,31 +12,16 @@ struct ForecastView: View {
     @EnvironmentObject var mainListItemViewModel: MainListItemViewModel
     var body: some View {
         ZStack {
-            if let forecastData = mainListItemViewModel.forecastData {
                 ScrollView(showsIndicators: false) {
                     Spacer()
                         .frame(height: 20)
                     ForecastHeaderView(isCurrentLocation: isCurrentLocation).environmentObject(mainListItemViewModel)
                     Spacer()
-                    
-
                         .frame(height: 50)
                     ForecastHourView().environmentObject(mainListItemViewModel)
-                    ForecastDayView(forecastDays: forecastData.forecast.forecastday)
-                    VStack {
-                        HStack {
-                            WidgetView(icon: "thermometer.medium", title: "FEELS LIKE", info: "19", description: "Similar to")
-                            WidgetView(icon: "drop.fill", title: "FEELS LIKE", info: "19", description: "Similar to")
-                        }
-                        HStack {
-                            WidgetView(icon: "eye.fill", title: "FEELS LIKE", info: "19", description: "Similar to")
-                            WidgetView(icon: "humidity.fill", title: "FEELS LIKE", info: "19", description: "Similar to")
-                        }
-                    }
+                    ForecastDayView().environmentObject(mainListItemViewModel)
                 }
-            } else {
-                LoadingAnimationView()
-            }
+
         }.onAppear{
             mainListItemViewModel.prepareHourlyForecasts()
         }

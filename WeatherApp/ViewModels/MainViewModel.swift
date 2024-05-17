@@ -75,11 +75,12 @@ class MainViewModel:  NSObject, ObservableObject, CLLocationManagerDelegate {
             if self.savedData[i] == "\(latitude),\(longitude)" {
                 self.savedData.remove(at: i)
                 self.saveData()
-                return
+                break
             }
         }
     }
     private func saveData() -> Void {
+        self.objectWillChange.send()
         UserDefaults.standard.set(self.savedData, forKey: self.SAVED_DATA_KEY)
     }
 }

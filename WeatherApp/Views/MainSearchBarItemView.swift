@@ -9,7 +9,6 @@ import SwiftUI
 import Combine
 struct MainSearchBarItemView: View {
     let queriedLocation: QueryLocation
-    @State var hasFinishedLoading: Bool = false
     @StateObject var viewModel = MainListItemViewModel()
     @EnvironmentObject var mainViewModel: MainViewModel
     let timer = Timer.publish(every: 1, on: .main, in: .common)
