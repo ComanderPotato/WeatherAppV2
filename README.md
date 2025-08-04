@@ -98,12 +98,24 @@ Each view is paired with a dedicated `ViewModel` that handles logic, state, and 
 
 ## 📸 Screenshots
 
-### Main Dashboard
-<img src="assets/images/Main_screen.png" alt="Main Dashboard Screenshot" width="350"/>
 
-### Searched Location
-<img src="assets/images/Searched_location.png" alt="Searched Location Screenshot" width="350"/>
+<div style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
 
-### Saving Location to Main Dashboard
-<img src="assets/images/Location_added.png" alt="Location Saved Screenshot" width="350"/>
+  <div style="text-align: center;">
+    <p><strong>Main Dashboard</strong></p>
+    <img src="assets/images/Main_screen.png" alt="Main Dashboard Screenshot" width="250"/>
+  </div>
+
+  <div style="text-align: center;">
+    <p><strong>Searched Location</strong></p>
+    <img src="assets/images/Searched_location.png" alt="Searched Location Screenshot" width="250"/>
+  </div>
+
+  <div style="text-align: center;">
+    <p><strong>Location Saved</strong></p>
+    <img src="assets/images/Location_added.png" alt="Location Saved Screenshot" width="250"/>
+  </div>
+
+</div>
+
 ---
