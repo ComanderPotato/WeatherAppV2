@@ -96,22 +96,14 @@ Each view is paired with a dedicated `ViewModel` that handles logic, state, and 
 
 ---
 
-## 📸 Screenshots (Optional)
+## 📸 Screenshots
+
 ### Main Dashboard
-![Main Dashboard Screenshot](assets/images/Main_screen.png)
+<img src="assets/images/Main_screen.png" alt="Main Dashboard Screenshot" width="350"/>
 
 ### Searched Location
-![Searched Location Screenshot](assets/images/Searched_location.png)
+<img src="assets/images/Searched_location.png" alt="Searched Location Screenshot" width="350"/>
 
 ### Saving Location to Main Dashboard
-![Location Saved Screenshot](assets/images/Location_added.png)
-
+<img src="assets/images/Location_added.png" alt="Location Saved Screenshot" width="350"/>
 ---
-
-## 📄 License
-
-This project is intended for educational use. For commercial use or modifications, please contact the author.
-
----
-
-Let me know if you'd like help generating diagrams or preview images to embed as well.
