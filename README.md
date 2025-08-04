@@ -1,12 +1,6 @@
-Here’s a cleaner, more professional, and well-structured version of your **WeatherApp README**, with improved clarity, formatting, and flow:
-
----
-
 # 🌤️ WeatherApp – A Modern SwiftUI Weather App
 
 **WeatherApp** is a sleek, modern weather application built with SwiftUI, designed to give users a fast, intuitive way to check current weather conditions. With support for saved locations, detailed forecasts, and location-based weather, it combines elegant design with robust functionality.
-
-![Glassmorphism design screenshot](images/weatherapp-preview.png) <!-- Optional image -->
 
 ---
 
@@ -103,11 +97,14 @@ Each view is paired with a dedicated `ViewModel` that handles logic, state, and 
 ---
 
 ## 📸 Screenshots (Optional)
+### Main Dashboard
+![Main Dashboard Screenshot](assets/images/Main_screen.png)
 
-> Add screenshots to visually demonstrate the UI and features:
+### Searched Location
+![Searched Location Screenshot](assets/images/Searched_location.png)
 
-* `images/dashboard.png` – Dashboard with saved locations
-* `images/forecast-detailed.png` – Detailed forecast view
+### Saving Location to Main Dashboard
+![Location Saved Screenshot](assets/images/Location_added.png)
 
 ---
 
