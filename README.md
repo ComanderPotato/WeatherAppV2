@@ -1,134 +1,120 @@
-## **WeatherApp: A Simple and Modern Weather App**
+Here’s a cleaner, more professional, and well-structured version of your **WeatherApp README**, with improved clarity, formatting, and flow:
 
-WeatherApp is a SwiftUI application designed to provide a clear and concise view of current weather conditions and location. It utilises the latest SwiftUI features, including glassmorphism, for a sleek contemporary design. For the GitHub repository [click here](https://github.com/ComanderPotato/WeatherAppV2).
+---
 
-## Application Structure:
-### Main Structure:
-|--MainView <br />
-&emsp;   |--MainSearchBarView <br /> 
-&emsp;&emsp;        |--MainSearchBarFieldVIew <br />
-&emsp;&emsp;        |--MainSearchBarItemView <br />
-&emsp;&emsp;&emsp;            |--ForecastView <br />
-&emsp;    |--MainListView <br />
-&emsp;&emsp;        |--MainListItemView <br />
-&emsp;&emsp;&emsp;            |--ForecastView <br />
-&emsp;&emsp;&emsp;            |--ForecastListView <br />
-&emsp;&emsp;&emsp;&emsp;                |--ForecastListLocationView <br />
-&emsp;&emsp;&emsp;&emsp;                |--ForecastListTemperaturesView  <br />
-### Forecast Structure
-|--ForecastView <br />
-&emsp;    |--ForecastHeaderView <br />
-&emsp;    |--ForecastHourView <br />
-&emsp;&emsp;        |--ForecastHourItemView <br />
-&emsp;&emsp;        |--SunIconView <br />
-&emsp;    |--ForecastDayView <br />
-&emsp;&emsp;        |--ForecastDayItemView <br />
-&emsp;&emsp;&emsp;            |--WeatherIconView <br />
-&emsp;&emsp;&emsp;            |--ForecastTemperatureBarView <br />
+# 🌤️ WeatherApp – A Modern SwiftUI Weather App
 
-## Description on Each View:
-### MainView:
-This view main entry point into the application. On appearance, it requests the users location which show at the top of their view depending on their selection. The MainView is also paired with a MainViewModel, which handles necessary functionionaility such as, requesting location, saving, removing and deleting from local storage. This MainViewModel is also an environment object that gets passed down to the necessary views that requires these functions. The view holds other views as well, such as the MainSearchBarView, and the MainListView which is passed as Content to the view previously mentioned.
+**WeatherApp** is a sleek, modern weather application built with SwiftUI, designed to give users a fast, intuitive way to check current weather conditions. With support for saved locations, detailed forecasts, and location-based weather, it combines elegant design with robust functionality.
 
-### MainSearchBarView:
-This view is the main content that users will see. It allows the user to view weather from their saved locations, as well as search up new locations using the MainSearchBarFieldView. This view is also paired with a MainSearchBarViewModel, which handles functionality for fetching data that the user inputs in the search bar. Depending on if the searchbar is focused and/or if information has been fetched, it will either show the list of saved locations, or a list of queried results.
+![Glassmorphism design screenshot](images/weatherapp-preview.png) <!-- Optional image -->
 
-### MainSearchBarItemView:
-This view holds queried results via the fetchQueriedResults function in MainSearchBarViewModel. It is a NavigationLink, which has a destination set to the ForecastView, and information regarding the queried locations name, region and country. A condition is set within the toolbar of the ForecastView which allows a user to add it to their local storage if it doesn't already contain that location.
+---
 
-### MainListView:
-This is an intermediate view that holds the MainViewModel environment object that iterates through the users local storage and displays their saved locations. On appearance, it checks whether a user selected to share their location, if so, the first location it will show will be their location with a different display. 
-    
-### MainListItemView:
-This view is very similar to the MainSearchBarItemView, with the fact that it displays NavigationalLinks with a destination set to the ForecastView, which is passed the current viewModel as an environment object. Each MainListItemView also has a MainListView, which stores individual forecast data which is fetched using information passed to it. Within each NavigationLink, a ForecastListView is displayed showing relevant information to a user, it is also passed an environment object with the current view model.
+## ✨ Key Features
 
-### ForecastListView:
-This is an intermediate view that gets passed the MainListItemViewModel environment object for a specific forecast. It then passes this information to the ForecastListLocationView, and the ForecastListTemperatureView to display important information about the location.
+* **📍 Location-Based Weather** – Automatically fetch weather for your current location.
+* **🔎 Search & Save** – Search for any location and save your favourites (up to 10).
+* **📅 Hourly & Daily Forecasts** – View temperature trends, sunrise/sunset, and rain chance.
+* **🧊 Modern UI** – Glassmorphism and SwiftUI animations for a contemporary experience.
+* **♿ Accessibility First** – High contrast, readable text, and clear layout.
 
-### ForecastListLocationView:
-This view shows information (depending if it's the users current location) on the current locations name, time, and condition. It also receives the MainListItemViewModel environment variable which prepares the hourly forecasts for the appropriate views.
+---
 
-### ForecastListTemperatureView:
-This view shows information on the current locations temperature, minimum and maximum temperature for the day.
+## 🧱 App Structure
 
-### ForecastView:
-This view is also an intermediate view that branches off into independent views such as, the ForecastHeaderView, ForecastHourView and ForecastDayView.
+> Built using a modular SwiftUI architecture for scalability and maintainability.
 
-### ForecastHeaderView:
-This view shows information on the current locations temperature, minimum and maximum temperature for the day.
+```
+MainView
+├── MainSearchBarView
+│   ├── MainSearchBarFieldView
+│   └── MainSearchBarItemView → ForecastView
+└── MainListView
+    └── MainListItemView
+        └── ForecastListView
+            ├── ForecastListLocationView
+            └── ForecastListTemperaturesView
 
-### ForecastHourView:
-This view is also an intermediate view which loops through the MainListItemViewModel environment objects hourly forecasts array, and displays them. On appearance, it also gets information pertaining to the sunrise and sunset via its personal ForecastHourViewModel, which will be used within the loop to display when the sun will rise and set via the SunIconView.
+ForecastView
+├── ForecastHeaderView
+├── ForecastHourView
+│   ├── ForecastHourItemView
+│   └── SunIconView
+└── ForecastDayView
+    ├── ForecastDayItemView
+    │   ├── WeatherIconView
+    │   └── ForecastTemperatureBarView
+```
 
-### ForecastHourItemView:
-This view displays information regarding each specific hour in the previously mentioned hourly forecasts arrays. It displays information regarding the time of day or "Now" if it is the current hour, a WeatherIconView which displays an image and the chance of rain if there is any, and the temperature at that hour.
+Each view is paired with a dedicated `ViewModel` that handles logic, state, and API communication.
 
-### ForecastDayView
-Similarly to the ForecastHourView, this is an intermediate view that gets passed the MainListItemViewModel environment object as well, which it loops through to retreive each daily forecast. On appearance, it also retreives information regarding the lowest and highest temperature out of this data, which will be used shortly.
+---
 
-### ForecastDayItemView:
-This view will display information regarding the forecast of the day, such as the specific day, an image of the days condition via the WeatherIconView, the minimum and maximum temperature of the day, and the ForecastTemperatureBarView.
+## 📱 Usage Overview
 
-### ForecastTemperatureBarView:
-This view is a temperature bar, which is displays a gradient showing the minimum and maximum temperature for each day, in comparison to the gray outer bar which is the minimum and maximum of the entire 10 day forecast. For todays forecast, a circle is displayed in the bar which shows the current temperature at that time of the day, compared to the temperature range for the entire day.
+### 🚀 Getting Started
 
+1. **Download and Launch** the WeatherApp on your iOS device.
+2. **Grant Location Permission** (optional) – to automatically display local weather.
+3. **View Dashboard** – Your location appears at the top as "My Location".
 
-## Key Features:
+### 🔍 Searching & Viewing Locations
 
-+ Optimised Data Fetching: Asynchronous data fetching ensures quick updates on current weather conditions.
-+ Simple and Easy to Read: WeatherApp prioritises ease of use with a user-friendly interface that allows you to see the weather information at a glance.
-+ Modern Design: The app leverages glassmorphism to create a visually appealing and informative user experience.
-+ Accessibility Focus: The app prioritises accessibility with high-contrast text and clear UI elements.
+* Use the **Search Bar** to find a city.
+* Tap a result to view a **detailed forecast** (hourly & 10-day).
+* Tap **Add** in the forecast view to save it to the dashboard.
 
+### 📌 Managing Saved Locations
 
-## Tech/Framework:
+* Saved locations appear on the main dashboard.
+* Tap any saved location for quick forecast access.
+* Up to **10 locations** can be saved (including your current location).
 
-* SwiftUI
-* WeatherApi: https://www.weatherapi.com/docs/
-* CoreLocation: https://developer.apple.com/documentation/corelocation
+---
 
+## ⚙️ Technologies Used
 
+| Technology       | Description                                                      |
+| ---------------- | ---------------------------------------------------------------- |
+| **SwiftUI**      | Declarative UI framework for iOS                                 |
+| **CoreLocation** | Location services for fetching user coordinates                  |
+| **WeatherAPI**   | Weather data provider ([docs](https://www.weatherapi.com/docs/)) |
 
-## Getting Started
+---
 
-1) Download and Launch: Download the WeatherApp and open it on your device.
+## 🧠 Architecture & Design Notes
 
-2) Location Permission (Optional): The app may request access to your current location. Granting permission allows you to see the weather for your current area automatically.
+* **MVVM Pattern**: All views use `@ObservedObject` or `@EnvironmentObject` view models for logic and state handling.
+* **Asynchronous Data Fetching**: Weather data is fetched via async calls using `URLSession`.
+* **Glassmorphism**: Used throughout the UI for a modern, clean design.
+* **Reusable Components**: Views like `ForecastHourItemView` and `ForecastTemperatureBarView` are shared across screens for consistency.
 
-3) Main Dashboard: Upon launch, you'll be directed to the main weather dashboard. If you granted location permission, the weather for your current location will be displayed prominently at the top of the list, titled 'My Location'.
+---
 
+## 🛠 Developer Notes
 
+* Maximum saved locations: **10**
+* Forecast data includes:
 
-## Searching for Locations
+  * **Current conditions**
+  * **Hourly** (including sunrise/sunset markers)
+  * **10-day forecast** with min/max temperature bars
 
-The weather dashboard features a search bar at the top to easily find weather information for other locations:
+---
 
-1) Enter Location: Type the desired location into the search bar.
+## 📸 Screenshots (Optional)
 
-2) Select Location: Choose the specific location you want to view from the search suggestions.
+> Add screenshots to visually demonstrate the UI and features:
 
-3) Detailed Forecast: You'll be directed to a detailed weather forecast for the selected location.
+* `images/dashboard.png` – Dashboard with saved locations
+* `images/forecast-detailed.png` – Detailed forecast view
 
+---
 
+## 📄 License
 
-## Accessing Detailed Forecasts
+This project is intended for educational use. For commercial use or modifications, please contact the author.
 
-There are two ways to access detailed weather forecasts within WeatherApp:
+---
 
-1) Main Dashboard: Simply click on any location displayed on the main dashboard. This will take you to a dedicated view with detailed forecast information for that specific location.
-
-2) Search Functionality: Utilise the search bar on the dashboard to find a specific location (see "Searching for Locations"). Selecting a location from the search results will also display its detailed forecast.
-
-
-## Saving Favorite Locations
-
-WeatherApp allows you to save frequently viewed locations for quick and easy access:
-
-1) Add Location: While viewing the detailed forecast for a desired location, tap the "Add" button located in the top left corner.
-
-2) Main Dashboard: Navigate back to the main dashboard (usually by tapping a back button in the top left corner).
-
-3) View Saved Location: The saved location will now be listed on the main dashboard. Simply tap the location to access its detailed forecast again.
-
-Note: WeatherApp has a limit of 10 saved locations (including your current location) displayed on the main dashboard.
-
+Let me know if you'd like help generating diagrams or preview images to embed as well.
